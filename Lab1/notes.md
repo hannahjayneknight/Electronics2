@@ -24,15 +24,15 @@ Function uses the inbuilt MATLAB function fft to compute the frequency spectrum.
 
 <br /> Two sine waves were generated: <br />
 1. s1
-    1. f = 400Hz
-    2. amp = 1.0V
-    3. fs = 10k Hz
-    4. T = 1 sec 
+    * f = 400Hz
+    * amp = 1.0V
+    * fs = 10k Hz
+    * T = 1 sec 
 2. s2
-    1. f = 1000Hz
-    2. amp = 0.5V
-    3. fs = 10k Hz
-    4. T = 1 sec 
+    * f = 1000Hz
+    * amp = 0.5V
+    * fs = 10k Hz
+    * T = 1 sec 
 
 <br /> These were then added together and plotted as a waveform (using MATLAB's plot function) and a spectrum (using my own plot_spec function). <br />
 
