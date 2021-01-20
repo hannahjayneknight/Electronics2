@@ -7,12 +7,7 @@ Note: As suggested by my previous tutor in Electronics 1, I aim to make concepts
 
 ## Lab Objectives
 
-1. Lab1
-    1. Have Matlab running on your personal laptop;
-    2. Able to plot signals with Matlab;
-    3. Understand basic Matlab syntax and language;
-    4. Use functions within Matlab;
-    5. Explore how phase affects signal shape;
-    6. Explain the idea of orthogonality and projection of signals.
+1. Lab1 - Practice using MATLAB
+    1. Function that generates a sine signal.
 
 2. Lab2
