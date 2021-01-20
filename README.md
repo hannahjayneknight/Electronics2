@@ -7,7 +7,7 @@ Note: As suggested by my previous tutor in Electronics 1, I aim to make concepts
 
 ## Lab Objectives
 
-1. Lab1 - Practice using MATLAB
+1. Lab1 - Introduction to MATLAB
     1. Function that generates a sine signal.
 
 2. Lab2
