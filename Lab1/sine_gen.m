@@ -6,9 +6,6 @@ function [sig] = sine_gen(amp, f, fs, T)
     
     % example: signal = sine_gen(1.0, 440, 8800, 1)
     
-    dt = 1/fs;
-    t = 0:dt:T;
+    dt = 1/fs; % finds the sample time period
+    t = 0:dt:T; % an array from 0 to T with a gap of dt
     sig = amp*sin(2*pi*f*t);
-    
-
-    
