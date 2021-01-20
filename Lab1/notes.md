@@ -41,11 +41,13 @@ Function uses the inbuilt MATLAB function fft to compute the frequency spectrum.
 
 ## Exercise 4: Two tones + noise
 
-**Files:**  <br />
+**Files:** noisy_wave.fig, noisy_wave.png<br />
 
-**What:** <br />
+**What:** MATLAB's randn() function was used to produce a set of random numbers and was added to the signal made in exercise 3. This was plotted as a wave and a spectrum. <br />
 
-**Test:**
+**Further notes:** Looking at the waveform alone, the amplitude of this wave varies enourmously from 1. Although a slight sine wave shape can be seen, it would have been nearly impossible to have inferred a sine wave from the noisy wave. This shows how noise can affect results and how important it is to minimise noise. <br />
+
+However, when you look at the spectrum, the frequencies of the two main waves is clear as these have the greatest amplitude. The amplitude for all the remaining noise is less than 0.1. This shows how important it is to use both the waveform and the frequency spectrum when inferring a signal. Using the rough shape of the waveform tells us there are sine waves present and the frequency spectrum tells us the frequencies. 
 
 ## Exercise 5: Projection using dot product
 
