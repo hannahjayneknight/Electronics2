@@ -30,7 +30,7 @@ Function uses the inbuilt MATLAB function fft to compute the frequency spectrum.
     4. T = 1 sec 
 2. s2
     1. f = 1000Hz
-    2.  amp = 0.5V
+    2. amp = 0.5V
     3. fs = 10k Hz
     4. T = 1 sec 
 
@@ -53,9 +53,21 @@ However, when you look at the spectrum, the frequencies of the two main waves is
 
 **Files:**  <br />
 
-**What:** <br />
+**What:** The dot product of different signal combinations was found using:<br />
 
-**Test:**
+dot_product = v1*transpose(v2)
+
+<br /> Results: <br />
+
+| vector 1 (v1) | vector 2 (v2) | result      |
+|---------------|---------------|-------------|
+| s1            | s2            | 1.8263e-13  |
+| s1            | s3            | -9.8339e-11 |
+| s1 + s2       | s1            | 5000        |
+
+<br /> Note that s3 is a signal of frequency 401Hz and amplitude 0.5.
+
+**Notes on results:**
 
 ## Further exploration
 
