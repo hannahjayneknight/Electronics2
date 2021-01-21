@@ -36,7 +36,7 @@ Function uses the inbuilt MATLAB function fft to compute the frequency spectrum.
 
 <br /> These were then added together and plotted as a waveform (using MATLAB's plot function) and a spectrum (using my own plot_spec function). <br />
 
-**Further notes:** The waveform looked like a squiggly line. I drew on the combined waveform to make the file combined_sine_wave_breakdown.jpg which shows s1 and s2. On the spectrum you can clearly see a line at 400Hz and 1000Hz which represent each waveform individually.
+**Further notes:** The waveform looked like a squiggly line. I drew on the combined waveform to make the file combined_sine_wave_breakdown.jpg which shows s1 and s2. On the spectrum you can clearly see a line at 400Hz and 1000Hz which represent each waveform individually. A useful tool to quickly see the effect of combining sine waves: https://demonstrations.wolfram.com/CombiningSineWaves/
 
 
 ## Exercise 4: Two tones + noise
