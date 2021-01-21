@@ -51,9 +51,9 @@ However, when you look at the spectrum, the frequencies of the two main waves is
 
 ## Exercise 5: Projection using dot product
 
-**Files:**  <br />
+**Files:**  None <br />
 
-**What:** The dot product of different signal combinations was found using:<br />
+**What:** The dot product of different signal combinations was found using: <br />
 
 dot_product = v1*transpose(v2)
 
@@ -67,12 +67,14 @@ dot_product = v1*transpose(v2)
 
 <br /> Note that s3 is a signal of frequency 401Hz and amplitude 0.5.
 
-**Notes on results:**
+**Notes on results:** Finding the dot product of two signsls tells us how much they have in common (ie how similar they are). A positive dot product means that two signals have a lot in common, meanwhile, a negative dot product means that the signals are related in a negative way, like vectors pointing in opposing directions. <br />
+
+This means that signals s1 and s2 are strongly related, meanwhile, signals s1 and s2 or s1 and s3 are not strongly related at all as their dot product is close to 0.
 
 ## Further exploration
 
-**Files:**  <br />
+**Files:** analysing_phase_shift.fig, analysing_phase_shift.png <br />
 
-**What:** <br />
+**What:** *Analysing phase shift* Firstly, the sine_gen function was edited to take in another argument: phase, inputted as phi. This means that the function can be used to generate a sine wave with a phase shift. Two new versions of s1 and s2 were made with the same properties as before, but s1 had a phase shift of 0 radians and s2 had a phase shift of pi radians. The waveform made in exercise three could then be compared to this one. As expected, the waveform produced in this exercise had the same shape but was shifted to the left by half a cycle, or had a phase shift of pi. <br />
 
-**Test:**
+Note that whenever you add two sinewaves, they could have different frequencies, different phase shifts or both, we use the trigonometric addition rule to combine them and find the new frequency. Source: http://spiff.rit.edu/classes/phys207/lectures/beats/add_beats.html

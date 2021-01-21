@@ -1,6 +1,6 @@
 % Exercise 1: Sinusoidal signal generation
 
-function [sig] = sine_gen(amp, f, fs, T)
+function [sig] = sine_gen(amp, f, fs, T, phi)
     % Function to generate a sine wave of amplitude amp, frequency f, 
     % sampling frequency fs and duration T
     
@@ -8,4 +8,4 @@ function [sig] = sine_gen(amp, f, fs, T)
     
     dt = 1/fs; % finds the sample time period
     t = 0:dt:T; % an array from 0 to T with a gap of dt
-    sig = amp*sin(2*pi*f*t);
+    sig = amp*sin(2*pi*f*t + phi);
