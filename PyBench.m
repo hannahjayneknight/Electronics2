@@ -7,10 +7,12 @@
 %   ... found ont he PyBench board.
 %
 %  Author:  Peter Y K Cheung, Imperial College
-%  Version: 1.1,  25, Jan 2017
+%  Version: 2.0,  2, Feb 2017 with contribution by James Davis
+%  Version: 2.1,  3, Mar 2017 add motor support
 %
 classdef PyBench
-    properties (GetAccess = public,SetAccess = public)
+    
+    properties
         BUFFERSIZE = 20000
         sig_freq = 10.0
         dc_v = 1.65;
@@ -18,66 +20,72 @@ classdef PyBench
         min_v = 0.0;
         duty_cycle = 50;
         samp_freq = 100.0
-        usb
     end
     
-    methods
-        % PyBench Constructor
-        % Usage:   pb = PyBench (usb_port);
-        function obj = PyBench(device)  % Constructor
-            fclose('all');
-            delete(instrfindall);
-            %% Create Serial Object to talk with PyBoard
+    properties(Hidden)   % added by James
+        usb
+        %keepalive
+        cleanup
+    end
+    
+    methods(Access = 'public')
+        
+        function obj = PyBench(device)
             obj.usb = serial(device, 'BaudRate', 115200, 'DataBits', 8);
             set(obj.usb, 'InputBufferSize', obj.BUFFERSIZE);
+            obj.cleanup = onCleanup(@obj.delete);  % add by James
             fopen(obj.usb);
         end
         
-         function [status] = ok(obj)
-            fprintf(obj.usb, '%s', '?');
+        function [status] = ok(obj, varargin)
+            fprintf(obj.usb, '%s\n', '?');
             ack = fread(obj.usb, 1);
-            status = (ack == 33);                                   
+            status = (ack == 33);
+            if ~status
+                disp('Connection error!');
+                obj.delete();
+            end
         end
-       
+        
         function dc(obj, v)
             tmp = max(min(v,3.3),0.0);  % between 0 and 3.3V
             command = sprintf('V%d',int16(4095*tmp/3.3));
-            fprintf(obj.usb, '%s', command);
+            fprintf(obj.usb, '%s\n', command);
             ack = fread(obj.usb, 1);
         end
         
         function out(obj, value)
             command = sprintf('B%d', value);
-            fprintf(obj.usb, '%s', command);
+            fprintf(obj.usb, '%s\n', command);
             ack = fread(obj.usb, 1);
         end
         
         function sine(obj)
-            fprintf(obj.usb, '%s', 'S');
+            fprintf(obj.usb, '%s\n', 'S');
             ack = fread(obj.usb, 1);
         end
         
         function triangle(obj)
-            fprintf(obj.usb, '%s', 'T');
+            fprintf(obj.usb, '%s\n', 'T');
             ack = fread(obj.usb, 1);
         end
         
         function square(obj)
-            fprintf(obj.usb, '%s', 'Q');
+            fprintf(obj.usb, '%s\n', 'Q');
             ack = fread(obj.usb, 1);
         end
         
         function obj = set_max_v(obj, v)
             obj.max_v = max(min(v,3.3),0.0);  % between 0 and 3.3V
             command = sprintf('X%d', int16(4095*obj.max_v/3.3));
-            fprintf(obj.usb, '%s', command);
+            fprintf(obj.usb, '%s\n', command);
             ack = fread(obj.usb, 1);
         end
         
         function obj = set_min_v(obj, v)
             obj.min_v = max(min(v,3.3),0.0);  % between 0 and 3.3V
             command = sprintf('N%d', int16(4095*obj.min_v/3.3));
-            fprintf(obj.usb, '%s', command);
+            fprintf(obj.usb, '%s\n', command);
             ack = fread(obj.usb, 1);
         end
         
@@ -87,7 +95,7 @@ classdef PyBench
             else
                 obj.sig_freq = max(min(f,100000.0),0.1);  % between 0.1Hz and 100kHz
                 command = sprintf('F%d', int16(obj.sig_freq*10));
-                fprintf(obj.usb, '%s', command);
+                fprintf(obj.usb, '%s\n', command);
                 ack = fread(obj.usb, 1);
             end
         end
@@ -98,7 +106,7 @@ classdef PyBench
             else
                 obj.samp_freq = max(min(f,100000),10);  % between 0 and 3.3V
                 command = sprintf('A%d', int16(obj.samp_freq));
-                fprintf(obj.usb, '%s', command);
+                fprintf(obj.usb, '%s\n', command);
                 ack = fread(obj.usb, 1);
             end
         end
@@ -106,12 +114,12 @@ classdef PyBench
         function obj = set_duty_cycle(obj, d)
             d_cycle = max(min(d,100),0);  % between 0 and 3.3V
             command = sprintf('D%d', int16(d_cycle));
-            fprintf(obj.usb, '%s', command);
+            fprintf(obj.usb, '%s\n', command);
             ack = fread(obj.usb, 1);
         end
         
         function v = get_one(obj)
-            fprintf(obj.usb, '%s', 'G');
+            fprintf(obj.usb, '%s\n', 'G');
             data = fread(obj.usb,2);
             v = (256*data(1) + data(2))*3.3/4096;
         end
@@ -119,7 +127,7 @@ classdef PyBench
         function v = sample(obj,i)
             tmp = max(min(i,4095),0);  % between 0 and 4095
             command = sprintf('B%d',tmp);
-            fprintf(obj.usb, '%s', command);
+            fprintf(obj.usb, '%s\n', command);
             data = fread(obj.usb,2);
             v = 256*data(1) + data(2);
         end
@@ -127,7 +135,7 @@ classdef PyBench
         function data = get_block(obj,n)
             tmp = max(min(n,obj.BUFFERSIZE/2),1);  % between 0 and 4095
             command = sprintf('M%d',tmp);
-            fprintf(obj.usb, '%s', command);
+            fprintf(obj.usb, '%s\n', command);
             % time it takes to sample
             pause(n/obj.samp_freq);
             raw = fread(obj.usb,tmp*2);
@@ -140,7 +148,7 @@ classdef PyBench
         function data = get_mic(obj,n)
             tmp = max(min(n,obj.BUFFERSIZE/2),1);  % between 0 and 4095
             command = sprintf('J%d',tmp);
-            fprintf(obj.usb, '%s', command);
+            fprintf(obj.usb, '%s\n', command);
             % time it takes to sample
             pause(n/obj.samp_freq);
             raw = fread(obj.usb,tmp*2);
@@ -151,7 +159,7 @@ classdef PyBench
         end
         
         function [pitch, roll] = get_accel(obj)
-            fprintf(obj.usb, '%s', 'K');
+            fprintf(obj.usb, '%s\n', 'K');
             data = fread(obj.usb,6);
             accel_scale = 8192; % degree
             gyro_scale = 131;   % degree/sec
@@ -175,11 +183,11 @@ classdef PyBench
         end
         
         function [xdot, ydot, zdot] = get_gyro(obj)
-            fprintf(obj.usb, '%s', 'L');
+            fprintf(obj.usb, '%s\n', 'L');
             data = fread(obj.usb,6);
             gyro_scale = 7150;   % radian/sec
             x = data(1)*256 + data(2);
-            y = data(3)*256 + data(3);
+            y = data(3)*256 + data(4);
             z = data(5)*256 + data(6);
             if (data(1) >= 128)
                 x = x - 65536;
@@ -195,5 +203,35 @@ classdef PyBench
             zdot = z/gyro_scale;
         end
         
-    end  % method
+        function obj = set_motor_direction(obj, v)
+            v = max(1,min(v,0));
+            command = sprintf('E%d', int16(v));
+            fprintf(obj.usb, '%s\n', command);
+            ack = fread(obj.usb, 1);
+        end
+        
+        function obj = set_motor_speed(obj, v)
+            v = min(100,max(v,0));
+            command = sprintf('Y%d', int16(v));
+            fprintf(obj.usb, '%s\n', command);
+            ack = fread(obj.usb, 1);
+        end
+                    
+        function [speedA, speedB] = get_motor_speed(obj)
+            fprintf(obj.usb, '%s\n', 'Z');
+            data = fread(obj.usb,4);
+            speedA = data(2)*256 + data(1);
+            speedB = data(4)*256 + data(3);
+        end
+        
+    end
+        
+        methods(Access = 'private')
+            
+            function delete(obj)
+                delete(obj.usb);
+            end
+            
+        end  % method
+    
 end   % class
