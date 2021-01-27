@@ -26,7 +26,13 @@ S <br />
 
 ## Exercise 3: Capture and analyse microphone signals
 
-**Files:** lab2task3.m, whistle freq domain.png, whistle time domain.png, lab2task3a.m<br />
+**Files for task3:** lab2task3.m, whistle freq domain.png, whistle time domain.png, , <br />
+
+**Changing the frequency results:** tunning fork aliased.png <br />
+
+**Changing the number of samples results:**  500a.png, 500b.png, 1000a.png, 1000b.png, 2000a.png, 2000b.png (NB: files with an _a_ are the frequency spectrums and files with a _b_ are the sample number vs voltage plots) <br />
+
+**Files for task3a:** lab2task3a.m, 3000Hz.mov, 3500Hz.mov, 4000Hz.mov, 4500Hz.mov, 5000Hz.mov<br />
 
 **What:** task3 was run and a teammate whistled into her microphone which recorded a snapshot of her voice. On the other hand, task3a continously collects data and plots in the spectrum using a while loop. <br />
 
@@ -34,14 +40,25 @@ S <br />
 
 We changed the sampling frequency to 500 Hz (which is less than 2 times the frequency of the tuning fork wave) to see the effect of aliasing. The resulting frequency spectrum had a peak at 50 Hz instead of the correct frequency of 440 Hz which is due to the fact that the high frequencies have folded back into the spectrum of the discrete time series and appeared as a lower frequency. The result can be seen in the following images: tunning fork aliased.png <br />
 
-Changing the number of samples collected.... <br />
+Increasing the number of samples (N) collected by the microphone improved the precision of the frequency spectrum peak. On the spectrum, this looks like a sharper peak with no curves either side. This effect is due to the fact that increasing the number of samples means that the mean value of the signal is more accurate. The mean value represents the DC offset which we want to remove.  DC offset occurs in the capturing of sound, before it reaches the recorder, and is normally caused by defective or low-quality equipment (more information can be found at: https://en.wikipedia.org/wiki/DC_bias). In conclusion, by increasing the number of samples, we increase the accuracy of the mean of the signal, which increases the accuracy of the DC offset which is removed, so what is left is a more accurate frequency peak. <br />
 
-## Exercise 3: Windowing effect on a signal
+## Exercise 4: Windowing effect on a signal
 
-**Files:** lab2task4.m, /Lab 2 files/plot_spec_dB.m, <br />
+**Files:** lab2task4.m, lab2task4a.m, /Lab 2 files/plot_spec_dB.m, <br />
 
-**What:**  The same measurements were made as task3, except the results were plotted <br />
+**What:**  The same measurements were made as task3, except the results were plotted on a logarithmic frequency spectrum where the amplitude was measured in dB (using plot_spec_dB.m rather than plot_spec). <br /> 
+
+Similar to task3, the code was modified by introducing a while loop. Here we apply a window (known as Hamming Window) to the signal before calculating the
+spectrum. <br />
+
+**Notes:**  Using a log scale provides much higher sensitivity than a linear scale. The plot is also normalized in a way that the maximum frequency component is at 0dB, i.e. all spectral components are relatively scaled to the peak spectral value. Finally, the magnitude axis is limited to 0dB to -60dB.<br />
+
+NB: The signal processing tool box for Matlab was needed to be downloaded for this exercise. <br />
+
+## Exercise 5: Music signal segmentation and analysis
+
+**Files:**  lab2task5.m, <br />
+
+**What:**  <br /> 
 
 **Notes:**  <br />
-
-NB: plot_spec_dB.m plots the frequency spectrum in DB. <br /> 
