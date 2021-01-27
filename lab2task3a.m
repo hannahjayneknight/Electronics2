@@ -18,3 +18,11 @@ title('Microphone signal');
 % find and plot spectrum
 figure(2);
 plot_spec(data, fs);
+
+while true
+    samples = pb.get_mic(N);
+    data = samples - mean(samples);
+    figure(2)
+    clf;
+    plot_spec(data, fs);
+end

@@ -5,7 +5,7 @@
 
 ## Exercise 2: Using PyBench to generate signals via Matlab and explore their spectra
 
-**Files:** lab2task2.m, ex2_sine.jpeg, ex2_triangle.jpeg, ex2_square.jpeg <br />
+**Files:** lab2task2.m, ex2_sine.jpeg, ex2_triangle.jpeg, ex2_square.jpeg, weird-sine-wave.jpeg <br />
 
 **What:**  <br />
 
@@ -13,8 +13,35 @@
 
 2. 
 
-**Notes:** Task 1 seemed to take a very long time. Errors kept coming back on MATLAB. <br />
+**Notes:** Task 1 seemed to take a very long time to get up and running. Errors kept appearing on MATLAB. Suddenly, (after 4.5 hours of trying), it worked after seemingly changing nothing! <br /> Once all the equipment was working, the results could be looked at in more detail. Changing the frequency and voltage of the wave had the obvious result of changing the period and amplitude of the waveform (the results can be seen in image ex2_square2.jpg where the max_v was set to 1.0 V and signal frequency set to 200 Hz). <br /> 
+
+
+**For PUTTY:** <br /> 
+F4400 <br /> 
+A8000 <br /> 
+X3723 <br /> 
+N620 <br /> 
+D50 <br /> 
+S <br /> 
 
 ## Exercise 3: Capture and analyse microphone signals
 
-**Files:** lab2task3.m <br />
+**Files:** lab2task3.m, whistle freq domain.png, whistle time domain.png, lab2task3a.m<br />
+
+**What:** task3 was run and a teammate whistled into her microphone which recorded a snapshot of her voice. On the other hand, task3a continously collects data and plots in the spectrum using a while loop. <br />
+
+**Notes:** A very nice frequency and time plot were produced by MATLAB. <br />
+
+We changed the sampling frequency to 500 Hz (which is less than 2 times the frequency of the tuning fork wave) to see the effect of aliasing. The resulting frequency spectrum had a peak at 50 Hz instead of the correct frequency of 440 Hz which is due to the fact that the high frequencies have folded back into the spectrum of the discrete time series and appeared as a lower frequency. The result can be seen in the following images: tunning fork aliased.png <br />
+
+Changing the number of samples collected.... <br />
+
+## Exercise 3: Windowing effect on a signal
+
+**Files:** lab2task4.m, /Lab 2 files/plot_spec_dB.m, <br />
+
+**What:**  The same measurements were made as task3, except the results were plotted <br />
+
+**Notes:**  <br />
+
+NB: plot_spec_dB.m plots the frequency spectrum in DB. <br /> 

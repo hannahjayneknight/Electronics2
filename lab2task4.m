@@ -17,4 +17,4 @@ title('Microphone signal');
 
 % find and plot spectrum
 figure(2);
-plot_spec(data, fs);
+plot_spec_dB(data, fs);
