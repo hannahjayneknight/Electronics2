@@ -1,21 +1,14 @@
+
 clear all
-ports = serialportlist;     % find all serial ports
-pb = PyBench(ports(end));   % create a PyBench object with the last port
+ports = serialportlist;
+pb = PyBench(ports(end));
 
-% setting parameters
+%fprintf(pb.usb, '%s\n', 'S')
+%fread(pb.usb, 1)
 
-f = 440;                    % signal frequency
-fs = 8000;                  % sampling frequency
-pb = pb.set_sig_freq(f);
-pb = pb.set_samp_freq(fs);
-pb = pb.set_max_v(3.0);     % set maximum output voltage
-pb = pb.set_min_v(0.5);     % set minimum output voltage
-pb = pb.set_duty_cycle(50);
-
-% generate signal
-
-pb.sine();
-% pb.triangle();
-% pb.square();
-
-
+pb.set_sig_freq(440)
+pb.set_samp_freq(8000)
+pb.set_max_v(3.0)
+pb.set_min_v(0.5)
+pb.set_duty_cycle(50)
+pb.square()
