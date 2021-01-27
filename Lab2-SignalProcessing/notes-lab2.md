@@ -44,12 +44,15 @@ Increasing the number of samples (N) collected by the microphone improved the pr
 
 ## Exercise 4: Windowing effect on a signal
 
-**Files:** lab2task4.m, lab2task4a.m, /Lab 2 files/plot_spec_dB.m, <br />
+**Files task4:** lab2task4.m, /Lab 2 files/plot_spec_dB.m, <br />
+
+**Files task4a:** lab2task4a.m, task4a hamming window spectrum.png, 4a-440Hz.mov <br />
 
 **What:**  The same measurements were made as task3, except the results were plotted on a logarithmic frequency spectrum where the amplitude was measured in dB (using plot_spec_dB.m rather than plot_spec). <br /> 
 
-Similar to task3, the code was modified by introducing a while loop. Here we apply a window (known as Hamming Window) to the signal before calculating the
-spectrum. <br />
+Similar to task3, the code was modified by introducing a while loop. Here we apply a window (known as Hamming Window) to the signal before calculating the spectrum. <br />
+
+**The hamming window:**  The graph _task4a hamming window spectrum.png_ shows the signal with the hamming window in red. Introducing the Hamming Window meant that the small amount of noise that existed before was removed, however, a lot of noise still remained. This could be due to the poor quality of the microphone. The improvement in accuracy can also be seen by the sharpness of the peaks increasing when a hamming window is implemented.<br />
 
 **Notes:**  Using a log scale provides much higher sensitivity than a linear scale. The plot is also normalized in a way that the maximum frequency component is at 0dB, i.e. all spectral components are relatively scaled to the peak spectral value. Finally, the magnitude axis is limited to 0dB to -60dB.<br />
 
@@ -57,8 +60,14 @@ NB: The signal processing tool box for Matlab was needed to be downloaded for th
 
 ## Exercise 5: Music signal segmentation and analysis
 
-**Files:**  lab2task5.m, <br />
+**Files:**  lab2task5.m, drum.fig, drum.png, drum_energy.fig, drum_energy.pgn, energy-of-sound-wave.jpg<br />
 
-**What:**  <br /> 
+**What:**  Firstly, MATLAB plotted the signal for the music file (which consists of sequence of single drum beats). The _buffer()_ method was used (from the signal processing toolbox) to split the sound file into 20 ms intervals. (It does this by splitting into how many samples you want, the sample is 6 seconds long so we wanted 6/ 0.02 samples.) <br /> 
+
+Next, the energy of each 20 ms second interval was calculated and plotted forming the drum_energy.fig. This was calculated using the formula shown in the image energy-of-sound-wave.jpg. <br /> 
+
+The peaks of the energy wave were highlighted.<br />
 
 **Notes:**  <br />
+
+NB: The signal processing tool box for Matlab was needed to be downloaded for this exercise. <br />
