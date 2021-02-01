@@ -89,5 +89,5 @@ This means that signals s1 and s2 are strongly related, meanwhile, signals s1 an
 
 Note that whenever you add two sinewaves, they could have different frequencies, different phase shifts or both, we use the trigonometric addition rule to combine them and find the new frequency. Source: http://spiff.rit.edu/classes/phys207/lectures/beats/add_beats.html
 
-<img src="combined_sine_wave.png" alt="A combined sine wave time-domain"  width="300"/><nobr>
-<img src="analysing_phase_shift.png" alt="Phase shifted" width="300"/>
+<img src="combined_sine_wave.png" alt="A combined sine wave time-domain"  width="500"/><nobr>
+<img src="analysing_phase_shift.png" alt="Phase shifted" width="500"/>
