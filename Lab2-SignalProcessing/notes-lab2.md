@@ -60,7 +60,7 @@ Increasing the number of samples (N) collected by the microphone improved the pr
 
 **Files task4:** lab2task4.m, /Lab 2 files/plot_spec_dB.m, <br />
 
-**Files task4a:** lab2task4a.m, task4a hamming window spectrum.png, 4a-440Hz.mov <br />
+**Files task4a:** lab2task4a.m, 4a-440Hz.mov <br />
 
 **What:**  The same measurements were made as task3, except the results were plotted on a logarithmic frequency spectrum where the amplitude was measured in dB (using plot_spec_dB.m rather than plot_spec). <br /> 
 
@@ -72,16 +72,26 @@ Similar to task3, the code was modified by introducing a while loop. Here we app
 
 NB: The signal processing tool box for Matlab was needed to be downloaded for this exercise. <br />
 
+<img src="task4a hamming window spectrum.png" alt="Hamming window spectrum"/>
+<br />
+Live capturing of a 44o Hz signal using a Hamming window:
+![Video](https://github.com/hannahjayneknight/Electronics2/blob/main/Lab2-SignalProcessing/4a-440Hz.mov)
+
 ## Exercise 5: Music signal segmentation and analysis
 
-**Files:**  lab2task5.m, drum.fig, drum.png, drum_energy.fig, drum_energy.pgn, energy-of-sound-wave.jpg<br />
+**Files:**  lab2task5.m, drum.fig, drum_energy.fig<br />
 
 **What:**  Firstly, MATLAB plotted the signal for the music file (which consists of sequence of single drum beats). The _buffer()_ method was used (from the signal processing toolbox) to split the sound file into 20 ms intervals. (It does this by splitting into how many samples you want, the sample is 6 seconds long so we wanted 6/ 0.02 samples.) <br /> 
 
-Next, the energy of each 20 ms second interval was calculated and plotted forming the drum_energy.fig. This was calculated using the formula shown in the image energy-of-sound-wave.jpg. <br /> 
+Next, the energy of each 20 ms second interval was calculated and plotted forming the drum_energy.fig. This was calculated using the formula shown.
+
+<img src="energy-of-sound-wave.jpg" alt="Energy of signal formula"/>
 
 The peaks of the energy wave were highlighted.<br />
 
 **Notes:**  <br />
 
 NB: The signal processing tool box for Matlab was needed to be downloaded for this exercise. <br />
+
+<img src="drum.png" alt="Drum beats time domain"/>
+<img src="drum_energy.png" alt="Energy of drum beats"/>
