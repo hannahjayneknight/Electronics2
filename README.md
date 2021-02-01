@@ -14,11 +14,7 @@ Note: As suggested by my previous tutor in Electronics 1, I aim to make concepts
     4. As above (exercise 3) but with noise added.
     5. **Projecting** signals onto one another using the dot product. 
 
-![Phase shifted](Lab1-IntroToMATLAB/analysing_phase_shift.png){
-  width: 50%;
-  border: none;
-  background: none;
-}
+![Phase shifted](Lab1-IntroToMATLAB/analysing_phase_shift.png =100x20)
 
 2. Lab2 - Signal Processing with PyBench & Matlab
     1. Check that Matlab on your computer is talking to PyBench hardware
