@@ -50,8 +50,12 @@ Increasing the number of samples (N) collected by the microphone improved the pr
 <img src="whistle freq domain.png" alt="Whistle frequency domain" width="500"/> <nobr>
 <img src="whistle time domain.png" alt="Whistle time domain" width="500"/>
 
+300 Hz capturing live video:
 ![Video](https://github.com/hannahjayneknight/Electronics2/blob/main/Lab2-SignalProcessing/3000Hz.mov)
+<br />
 
+500 Hz capturing live video:
+![Video](https://github.com/hannahjayneknight/Electronics2/blob/main/Lab2-SignalProcessing/5000Hz.mov)
 ## Exercise 4: Windowing effect on a signal
 
 **Files task4:** lab2task4.m, /Lab 2 files/plot_spec_dB.m, <br />
