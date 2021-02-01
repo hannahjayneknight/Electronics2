@@ -28,7 +28,7 @@ S <br />
 
 **Files for task3:** lab2task3.m, whistle freq domain.png, whistle time domain.png, , <br />
 
-**Changing the frequency results:** tunning fork aliased.png <br />
+**Changing the sampling frequency:** tunning fork aliased.png <br />
 
 **Changing the number of samples results:**  500a.png, 500b.png, 1000a.png, 1000b.png, 2000a.png, 2000b.png (NB: files with an _a_ are the frequency spectrums and files with a _b_ are the sample number vs voltage plots) <br />
 
