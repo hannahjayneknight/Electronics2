@@ -18,11 +18,11 @@ Tasks:
 4. As above (exercise 3) but with noise added.
 5. **Projecting** signals onto one another using the dot product. <br />
 
-<img src="Lab1-IntroToMATLAB/sine_gen_test.png" alt="Simple sine wave" width="300"/>
+<img src="Lab1-IntroToMATLAB/sine_gen_test.png" alt="Simple sine wave" width="300"/> <nobr>
 <img src="Lab1-IntroToMATLAB/plot_spec_test.png" alt="Simple frequency spectrum" width="300"/>
-<img src="Lab1-IntroToMATLAB/combined_sine_wave.png" alt="Combining sine waves" width="300"/>
+<img src="Lab1-IntroToMATLAB/combined_sine_wave.png" alt="Combining sine waves" width="300"/> <nobr>
 <img src="Lab1-IntroToMATLAB/analysing_phase_shift.png" alt="Phase shifted" width="300"/>
-<img src="Lab1-IntroToMATLAB/noisy_wave.png" alt="Noisy wave time domain" width="300"/>
+<img src="Lab1-IntroToMATLAB/noisy_wave.png" alt="Noisy wave time domain" width="300"/> <nobr>
 <img src="/Lab1-IntroToMATLAB/noisy_wave_spectrum.png" alt="Noisy wave spectrum" width="300"/>
 
 #### Lab2 - Signal Processing with PyBench & Matlab
