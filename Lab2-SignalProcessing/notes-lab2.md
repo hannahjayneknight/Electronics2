@@ -5,7 +5,7 @@
 
 ## Exercise 2: Using PyBench to generate signals via Matlab and explore their spectra
 
-**Files:** lab2task2.m, ex2_sine.jpeg, ex2_triangle.jpeg, ex2_square.jpeg, weird-sine-wave.jpeg <br />
+**Files:** lab2task2.m <br />
 
 **What:**  <br />
 
@@ -24,9 +24,14 @@ N620 <br />
 D50 <br /> 
 S <br /> 
 
+<img src="ex2_sine.jpeg" alt="Sine wave" width="500"/> <nobr>
+<img src="ex2_triangle.jpeg" alt="Triangle wave" width="500"/> 
+<img src="ex2_square.jpeg" alt="Square wave" width="500"/> <nobr>
+<img src="weird-sine-wave.jpeg" alt="Weird wave" width="500"/>
+
 ## Exercise 3: Capture and analyse microphone signals
 
-**Files for task3:** lab2task3.m, whistle freq domain.png, whistle time domain.png, , <br />
+**Files for task3:** lab2task3.m <br />
 
 **Changing the sampling frequency:** tunning fork aliased.png <br />
 
@@ -41,6 +46,11 @@ S <br />
 We changed the sampling frequency to 500 Hz (which is less than 2 times the frequency of the tuning fork wave) to see the effect of aliasing. The resulting frequency spectrum had a peak at 50 Hz instead of the correct frequency of 440 Hz which is due to the fact that the high frequencies have folded back into the spectrum of the discrete time series and appeared as a lower frequency. The result can be seen in the following images: tunning fork aliased.png <br />
 
 Increasing the number of samples (N) collected by the microphone improved the precision of the frequency spectrum peak. On the spectrum, this looks like a sharper peak with no curves either side. This effect is due to the fact that increasing the number of samples means that the mean value of the signal is more accurate. The mean value represents the DC offset which we want to remove.  DC offset occurs in the capturing of sound, before it reaches the recorder, and is normally caused by defective or low-quality equipment (more information can be found at: https://en.wikipedia.org/wiki/DC_bias). In conclusion, by increasing the number of samples, we increase the accuracy of the mean of the signal, which increases the accuracy of the DC offset which is removed, so what is left is a more accurate frequency peak. <br />
+
+<img src="whistle freq domain.png" alt="Whistle frequency domain" width="500"/> <nobr>
+<img src="whistle time domain.png" alt="Whistle time domain" width="500"/>
+
+![Video](https://github.com/hannahjayneknight/Electronics2/blob/main/Lab2-SignalProcessing/3000Hz.mov)
 
 ## Exercise 4: Windowing effect on a signal
 
