@@ -7,14 +7,14 @@ Note: As suggested by my previous tutor in Electronics 1, I aim to make concepts
 
 ## Lab Objectives
 
-1. Lab1 - Introduction to MATLAB
+#### Lab1 - Introduction to MATLAB
     1. Function that generates a sine signal.
     2. Function that plots a frequency spectrum.
     3. Comining two sine waves of different frequencies and amplitudes and plotting the resulting waveform and frequency spectrum.
     4. As above (exercise 3) but with noise added.
     5. **Projecting** signals onto one another using the dot product. 
 
-![Phase shifted](Lab1-IntroToMATLAB/analysing_phase_shift.png =100x20)
+<img src="Lab1-IntroToMATLAB/analysing_phase_shift.png" alt="Phase shifted" width="200" height="200"/>
 
 2. Lab2 - Signal Processing with PyBench & Matlab
     1. Check that Matlab on your computer is talking to PyBench hardware
