@@ -15,7 +15,7 @@ Note: As suggested by my previous tutor in Electronics 1, I aim to make concepts
     5. **Projecting** signals onto one another using the dot product. 
 
 <br /> 
-![Phase shifted](./Lab1-IntroToMATLAB/analysing_phase_shift.png)
+![Phase shifted](https://github.com/hannahjayneknight/Electronics2/blob/main/Lab1-IntroToMATLAB/analysing_phase_shift.png)
 <br /> 
 
 2. Lab2 - Signal Processing with PyBench & Matlab
