@@ -33,13 +33,13 @@ Brightness doesn't increase any further after 1.7V = x_dch <br />
 | 0.3  | 2.0456  |
 | 1.7  | 48.6823 |
 
-3. Writing a MATLAB file to find the ```a_in``` values for a range of inputted DC values. Then,  a graph of x_dc can be plotted against y_dc to see the relationship. <br />
+3. Writing a MATLAB file to find the ```a_in``` values for a range of inputted DC values. Then, a graph of x_dc can be plotted against y_dc to see the relationship. <br />
 
 *Files:* lab3Task1.m, DC-characteristics-bulb-board.fig <br />
 
 What we're putting in is a voltage, and we're getting light intensity out. <br />
 
-The results show an initial linear section as the bulb heats up, followed by quadratic relationship (Determined by the formula P=V^2/R. In this case V is the inputted DC value and P is the light intensity). followed by a linear section when the bulb is fully heated. The final linear region is for x_dc values at 1.7V or higher - so my initial prediction for the max value for x_dc was correct! <br /> 
+The results show an initial linear section as the bulb heats up, followed by quadratic relationship (Determined by the formula P=V^2/R. In this case V is the inputted DC value and P is the light intensity) followed by a linear section when the bulb is fully heated. The final linear region is for x_dc values at 1.7V or higher - so my initial prediction for the max value for x_dc was correct! <br /> 
 
 <img src="DC-characteristics-bulb-board.png" alt="DC characteristic of bulb board"/>
 
@@ -90,7 +90,7 @@ EXPLAIN HOW THIS WORKS <br />
 
 **Explanation of results:** COME BACK TO THIS
 
-## Exercise 3: Measure the Frequency Response of the Bulb Board system using PyBench
+## Exercise 4: Measure the Step Response of the Bulb Board
 
 Here we analyse the transient behaviour of the Bulb Board by driving it with a step function. We drive the bulb with a rising step, then a falling step, between 1.0V and 1.5V, and
 capture the transient behaviour of the system.
