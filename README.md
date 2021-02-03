@@ -52,12 +52,12 @@ Tasks:
     2. The ```pb.dc(voltage)``` method was used to manually change the DC value and see the lowest value for which the bulb is on and the lowest value for which the bulb is at maximum brightness.
     3. The process above was automated using MATLAB to find the ```a_in``` values for a range of inputted DC values and determine the relationship.
     4. (Optional task which is yet to be completed)
-2. The theoretical frequency repsonse of the system was plotted.
-3. The actual frequency repsonse of the system was found.
+2. The **theoretical frequency** repsonse of the system was plotted.
+3. The **actual frequency repsonse** of the system was found.
     1. Manually
     2. Automatically with MATLAB
     3. Comparisons between (1) and (2) were then made.
-4. The transient behaviour of the Bulb Board was analysed by driving it with a step function.
+4. The **transient behaviour** of the Bulb Board was analysed by driving it with a **step function**.
 
 <img src="Lab3- System Characterisation & Transfer Function/setting-up-bulb-board.jpg" alt="Setting up the bulb board" width="400"/><nobr>
 <img src="Lab3- System Characterisation & Transfer Function/DC-characteristics-bulb-board.png" alt="DC characteristic of bulb board" width="400"/>
