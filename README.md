@@ -1,6 +1,6 @@
 # Electronics2
 
-All my work associated with the Electronics 2 module, year 2, Design Engineering at Imperial College London.
+All my work associated with the Electronics 2 module, year 2, Design Engineering, Imperial College London, 2021.
 
 
 ## Lab1 - Introduction to MATLAB
