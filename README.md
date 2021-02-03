@@ -3,10 +3,7 @@
 All my work associated with the Electronics 2 module, year 2, Design Engineering at Imperial College London.
 
 
-
-## Lab Objectives
-
-#### Lab1 - Introduction to MATLAB
+## Lab1 - Introduction to MATLAB
 
 Link to notes: https://github.com/hannahjayneknight/Electronics2/blob/main/Lab1-IntroToMATLAB/notes-lab1.md <br />
 
@@ -24,7 +21,7 @@ Tasks:
 <img src="Lab1-IntroToMATLAB/noisy_wave.png" alt="Noisy wave time domain" width="400"/> <nobr>
 <img src="Lab1-IntroToMATLAB/noisy_wave_spectrum.png" alt="Noisy wave spectrum" width="400"/>
 
-#### Lab2 - Signal Processing with PyBench & Matlab
+## Lab2 - Signal Processing with PyBench & Matlab
 
 Link to notes: https://github.com/hannahjayneknight/Electronics2/blob/main/Lab2-SignalProcessing/notes-lab2.md <br />
 
@@ -45,7 +42,7 @@ Tasks:
 <img src="Lab2-SignalProcessing/drum.png" alt="Drum beats time domain" width="400"/>
 <img src="Lab2-SignalProcessing/drum_energy.png" alt="Energy of drum beats" width="400"/>
 
-#### Lab3 -  System Characterisation & Transfer Function
+## Lab3 -  System Characterisation & Transfer Function
 
 Link to notes: https://github.com/hannahjayneknight/Electronics2/blob/main/Lab3-%20System%20Characterisation%20%26%20Transfer%20Function/notes-lab3.md <br />
 
