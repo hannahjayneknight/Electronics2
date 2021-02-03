@@ -44,3 +44,10 @@ Tasks:
 <img src="Lab2-SignalProcessing/task4a hamming window spectrum.png" alt="Hamming window spectrum" width="400"/> <nobr>
 <img src="Lab2-SignalProcessing/drum.png" alt="Drum beats time domain" width="400"/>
 <img src="Lab2-SignalProcessing/drum_energy.png" alt="Energy of drum beats" width="400"/>
+
+#### Lab3 -  System Characterisation & Transfer Function
+
+Link to notes: <br />
+
+Tasks:
+1.
