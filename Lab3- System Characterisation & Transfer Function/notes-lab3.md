@@ -57,8 +57,44 @@ We find and plot the theoretical frequency repsonse of the bulb board. <br />
 
 **Explanation of the code:** COME BACK TO THIS <br />
 
-<img src="theoretical-freq-response.png" alt="Theoretical frequency respons"/> 
+<img src="theoretical-freq-response.png" alt="Theoretical frequency response"/> 
 
 ## Exercise 3: Measure the Frequency Response of the Bulb Board system using PyBench
 
-*Files:* lab3Task2.m, theoretical-freq-response.fig,  <br />
+1. Manually finding the frequency response at different sampling frequencies and plotting the results.
+
+EXPLAIN HOW THIS WORKS <br />
+
+*Files:* lab3Task3.m, manually-finding-freq-response.fig <br />
+
+| f_sig | G      | G_dB    |
+|-------|--------|---------|
+| 1.0   | 3.3354 | 10.4631 |
+| 3.0   | 4.0847 | 12.2232 |
+| 4.0   | 5.8250 | 15.3058 |
+| 5.0   | 9.4343 | 19.4942 |
+| 7.0   | 3.8188 | 11.6386 |
+| 9.0   | 1.3213 | 2.42    |
+
+<img src="manually-finding-freq-response.png" alt="Manually finding frequency response"/> 
+
+2. A script was written to automate the process the done above. The two results were then compared.
+
+*Files:* lab3Task3a.m, ex3a-freq-response.fig <br />
+
+<img src="ex3a-freq-response.png" alt="Automatically finding frequency response"/> 
+
+
+
+**Comparisons:** The highest gain occurs roughly at the same point in both results at 5Hz. However, the magnitude is higher on task 3a. Furthermore, the gain starts at a higher value for task 3a compared with 3. <br />
+
+**Explanation of results:** COME BACK TO THIS
+
+## Exercise 3: Measure the Frequency Response of the Bulb Board system using PyBench
+
+Here we analyse the transient behaviour of the Bulb Board by driving it with a step function. We drive the bulb with a rising step, then a falling step, between 1.0V and 1.5V, and
+capture the transient behaviour of the system.
+
+**Explanation of results:** COME BACK TO THIS
+
+<img src="step-respsonse.png" alt="Step response"/> 
