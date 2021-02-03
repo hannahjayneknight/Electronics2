@@ -2,11 +2,9 @@
 
 **Notes:** All went smoothly. <br />
 
-<img src="setting-up-bulb-board.jpg" alt="Setting up the bulb board"/> <nobr>
+<img src="setting-up-bulb-board.jpg" alt="Setting up the bulb board"/>
 
 ## Exercise 1: DC Characteristic of the Bulb Board
-
-**What:**  
 
 1. Initial testing of using MATLAB with the Bulb Board. <br /> 
 
@@ -37,11 +35,30 @@ Brightness doesn't increase any further after 1.7V = x_dch <br />
 
 3. Writing a MATLAB file to find the ```a_in``` values for a range of inputted DC values. Then,  a graph of x_dc can be plotted against y_dc to see the relationship. <br />
 
-*Files:* lab3Task1.m, DC-characteristics-bulb-board.fig, DC-characteristics-bulb-board.png <br />
+*Files:* lab3Task1.m, DC-characteristics-bulb-board.fig <br />
 
-The results show an exponential relationship as the bulb heats up followed by a linear section when the bulb is fully heated. The linear region is for x_dc values at 1.7V or higher - so my initial prediction for the max value for x_dc was correct! <br /> 
+What we're putting in is a voltage, and we're getting light intensity out. <br />
 
+The results show an initial linear section as the bulb heats up, followed by quadratic relationship (Determined by the formula P=V^2/R. In this case V is the inputted DC value and P is the light intensity). followed by a linear section when the bulb is fully heated. The final linear region is for x_dc values at 1.7V or higher - so my initial prediction for the max value for x_dc was correct! <br /> 
+
+<img src="DC-characteristics-bulb-board.png" alt="DC characteristic of bulb board"/>
+
+4. Optional task
+
+(To be completed later) <br />
 
 **Notes:** The ```pb.get_one()``` method measures ```a_in```. <br />
 
-## Exercise 2:
+## Exercise 2: Frequency Response of the Bulb Board system - Simulation
+
+*Files:* lab3Task2.m, theoretical-freq-response.fig,  <br />
+
+We find and plot the theoretical frequency repsonse of the bulb board. <br />
+
+**Explanation of the code:** COME BACK TO THIS <br />
+
+<img src="theoretical-freq-response.png" alt="Theoretical frequency respons"/> 
+
+## Exercise 3: Measure the Frequency Response of the Bulb Board system using PyBench
+
+*Files:* lab3Task2.m, theoretical-freq-response.fig,  <br />
