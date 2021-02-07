@@ -55,7 +55,25 @@ The results show an initial linear section as the bulb heats up, followed by qua
 
 We find and plot the theoretical frequency repsonse of the bulb board. <br />
 
-**Explanation of the code:** COME BACK TO THIS <br />
+**What is the frequency response?** The frequency response of a system is a plot of the Gain of the system verses the frequency of the signal. In other words, we plot G(jω) on the y-axis and ω or f on the x-axis.
+
+<img src="gain-formula.PNG" alt="Calculating the gain of a system"/> 
+
+To find the Gain, we need to know the transfer function of the system. The _Transfer Function_ is the ratio of the output of a system to the input of a system, in the Laplace domain, considering its initial conditions and equilibrium point to be zero.<br />
+
+We can find the transfer function of a system if we know all the components in the system and its boundary conditions. In this case, we are given the 2nd order transfer function for our Bulb Board which is shown in the following image.
+
+<img src="modelling-bulb-board-system.jpg" alt="Modelling the Bulb Board system"/> 
+
+At the moment, this equation is dependent on _s_. To find the _frequency response_, we simply replace _s_ with _jω_. Using this equation means we are finding the _theoretical_ frequency response. In practice, the system will not perfectly behave according to this equation.
+
+**The code:** 
+1. Create an array of the frequencies, _f_, we want to plot.
+2. Define _s_ as _jω_. In code this is written as ```1i*2*pi*f```. This creates an array of all the values of _s_ for the corresponding values of _f_.
+3. The Gain of the system (in dB) is found by using the ```polyval()``` method and the equation for the Bulb Board shown above.
+4. The result is plotted against _f_.
+
+NB: The ```polyval()``` method evaluates a polynomial.
 
 <img src="theoretical-freq-response.png" alt="Theoretical frequency response"/> 
 
@@ -63,7 +81,7 @@ We find and plot the theoretical frequency repsonse of the bulb board. <br />
 
 1. Manually finding the frequency response at different sampling frequencies and plotting the results.
 
-EXPLAIN HOW THIS WORKS <br />
+**Setting a range for the input voltage**: In Exercise One, you can see a flat line in the resulting plot for when the Bulb Board starts to behave like a linear system. Reading from the y-axis, this gives you a range for _x(t)_ (input voltage) for which the system approximately behaves linearly. This is the range we use in this task. This is important since we modelled the system as linear in the previous exercise and otherwise it would be far more complicated to analyse.
 
 *Files:* lab3Task3.m, manually-finding-freq-response.fig <br />
 
@@ -78,23 +96,31 @@ EXPLAIN HOW THIS WORKS <br />
 
 <img src="manually-finding-freq-response.png" alt="Manually finding frequency response"/> 
 
+**Comparing to the theoretical model:** Both the theoretical model and my measurements here agree that the maximum gain occurs at 5 Hz. Futhermore, in both cases the maximum gain is around 10 dB (give or take 0.5 dB).
+
 2. A script was written to automate the process the done above. The two results were then compared.
 
 *Files:* lab3Task3a.m, ex3a-freq-response.fig <br />
 
 <img src="ex3a-freq-response.png" alt="Automatically finding frequency response"/> 
 
+**Comparing manual and automatic measurements:** The highest gain occurs roughly at the same point in both results at 5Hz. However, the magnitude is higher on task 3a which is further from the theoretical prediction. Furthermore, the gain starts at a higher value for task 3a compared with 3. <br />
 
+**Explanation of results:** The difference between our predictions for the gain and the measured values could be due to the following factors:
+- Tolerances of the components in the system
+- Inaccuracies of the measuring equipment
+- The non-linearity of our system plays a bigger part than we realised.
+- Our model does not consider all the parasitics and unwanted effects that might exist in the real system.
 
-**Comparisons:** The highest gain occurs roughly at the same point in both results at 5Hz. However, the magnitude is higher on task 3a. Furthermore, the gain starts at a higher value for task 3a compared with 3. <br />
-
-**Explanation of results:** COME BACK TO THIS
 
 ## Exercise 4: Measure the Step Response of the Bulb Board
 
-Here we analyse the transient behaviour of the Bulb Board by driving it with a step function. We drive the bulb with a rising step, then a falling step, between 1.0V and 1.5V, and
-capture the transient behaviour of the system.
+Here we analyse the transient behaviour of the Bulb Board by driving it with a step function. We drive the bulb with a rising step, then a falling step, between 1.0V and 1.5V, and capture the transient behaviour of the system. <br />
 
-**Explanation of results:** COME BACK TO THIS
+**Transient behaviour:** Steady state behavior is behavior that continues on indefinitely, if you keep the system state and its inputs the same. Steady state behavior is behavior that continues on indefinitely, if you keep the system state and its inputs the same.Transient behavior is any behavior that dies out over time. For example if you stepped up the input of your linear system to an amplitude of 2a at time t=0, you'd see the output jump in amplitude from 4a to 8a, but it would take some time to do that. The behavior during that transition, from when it's behaving like it had a a input for a long time to when it settles down to behave like it had a 2a input for a long time, is the transient behavior. <br />
+
+The appearance of transient behaviour depends on the circuit and the stimulus that produced it. Transient behavior gives a more complete picture of the circuit behavior that also includes the possibility of inputs changing over time. As a designer, you have to deal with it accoridngly or design your circuit to produce the behavior you need.<br />
+
+**Transient response of the Bulb Board:** The graph below shows how our Bulb Board displays an _underdamped response_. This means that it oscilates for a while before reaching a steady-state. This aligns with the frequency response graph which had a peak - a characteristic of an underdamped system - rather than decreasing from a starting value with no peak.
 
 <img src="step-respsonse.png" alt="Step response"/> 
