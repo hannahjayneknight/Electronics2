@@ -65,3 +65,5 @@ Tasks:
 <img src="Lab3- System Characterisation & Transfer Function/manually-finding-freq-response.png" alt="Manually finding frequency response" width="400"/> 
 <img src="Lab3- System Characterisation & Transfer Function/ex3a-freq-response.png" alt="Automatically finding frequency response" width="400"/> <nobr>
 <img src="Lab3- System Characterisation & Transfer Function/step-respsonse.png" alt="Step response" width="400"/> 
+
+## Lab 4 -  IMU and OLED Display
