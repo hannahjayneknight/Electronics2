@@ -67,3 +67,19 @@ Tasks:
 <img src="Lab3- System Characterisation & Transfer Function/step-respsonse.png" alt="Step response" width="400"/> 
 
 ## Lab 4 -  IMU and OLED Display
+
+Link to notes: https://github.com/hannahjayneknight/Electronics2/blob/main/Lab4-%20IMU%20and%20OLED%20Display/notes-lab4.md<br />
+
+Tasks:
+1. Using the accelerometer and gyroscope
+2. Plotting a 3d model of the board using the accelerometer and gyroscope. Noticing the affects of noise for both sensors and their differences.
+3. Correcting the affects of noise from task 2 by implementing a complementary filter (one that contains 2 different filters, one each for the accelerometer and gyroscope)
+4. Communicating with the PyBench and printing to the OLED screen using PuTTY.
+5. Printing the results of the accelerometer and gyroscope by uploading files directly to the board.
+
+<img src="Lab4- IMU and OLED Display/rolling-too-quickly.jpg" alt="Task 1" width="400"/><nobr>
+<img src="Lab4- IMU and OLED Display/rolling-sideways.jpg" alt="Task 1" width="400"/>
+<img src="Lab4- IMU and OLED Display/task3.jpg" alt="Task 3" width="400"/> <nobr>
+<img src="Lab4- IMU and OLED Display/hello-world.jpg" alt="Task 4" width="400"/> 
+<img src="Lab4- IMU and OLED Display/task5-flat.jpg" alt="Task 5" width="400"/> <nobr>
+<img src="Lab4- IMU and OLED Display/task5-tilted.jpg" alt="Task 5" width="400"/> 
