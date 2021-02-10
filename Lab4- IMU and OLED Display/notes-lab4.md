@@ -102,7 +102,7 @@ To check the board and computer were communicating, the blue LED was toggled. It
 
 <img src="oled-error.jpg" alt="OLED error"/> <br />
 
-In the end, the ```i2c_devid``` number from line 22 in lab4task4.py neeed to be changed. i2c is a serial protocol, on 1 wire coming out of the CPU you can connect more than 1 i2c device, each one has an address, so the first part of the serial message sent on the wire might address = 1 and the i2c device with address will listen for the rest of the message. Devices come pre-programmed with an address, sometimes the device has a pin or 2 to select which address it should use (out of a choice). If you look up the chip used in the display it should tell you
+In the end, the ```i2c_devid``` number from line 22 in lab4task4.py neeed to be changed. i2c is a serial protocol, on 1 wire coming out of the CPU you can connect more than 1 i2c device, each one has an address, so the first part of the serial message sent on the wire might address = 1 and the i2c device with address will listen for the rest of the message. Devices come pre-programmed with an address, sometimes the device has a pin or 2 to select which address it should use (out of a choice). If you look up the chip used in the display it should tell you. For this OLED screen, the documentation can be found here: https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf. On page 19, it gives information about the i2c number. It says 0111100 = dec 60 the LSB is the hardware selector bit - so they must have this tied to ground, b0 is a read/write flag so you ignore that and shift the other 7 bits down.
 
 Changing the ```i2c_devid``` number gave the desired result.
 
