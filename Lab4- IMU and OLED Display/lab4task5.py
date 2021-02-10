@@ -18,7 +18,7 @@ b_LED = LED(4)
 
 # I2C connected to Y9, Y10 (I2C bus 2) and Y11 is reset low active
 oled = OLED_938(pinout={'sda': 'Y10', 'scl': 'Y9', 'res': 'Y8'}, height=64,
-                   external_vcc=False, i2c_devid=61)
+                   external_vcc=False, i2c_devid=60)
 oled.poweron()
 oled.init_display()
 

@@ -64,6 +64,8 @@ On the other hand, whilst the accelerometer does not drift with time, each readi
 
 ## Exercise 3: Combining the two measurements using Complementary Filter
 
+*Files:*  lab4task3.m <br />
+
 The results from exercise 2 were improved by introducing two filters. <br />
 
 **Accelerometer filter:** We use a _low pass_ filter to reduce noisiness on the accelerometer readings (suppresses high frequency noise). The goal of this is to only let through long-term changes and filter out short-term fluctuations. <br />
@@ -84,8 +86,34 @@ Putting it all together to filter our angles:
 <img src="filter-code.jpg" alt="Filter code"/> <br />
 <img src="filter-code-explain.jpg" alt="Filter code explanation"/> <br />
 
-
-
 **In summary:** This means that a lower value for alpha reduces the amount of time it takes for the model to settle in the correct position, but it increases noise in the accelerometer readings, so it is a trade off. 
 
 <img src="task3.jpg" alt="Using a filter"/> <br />
+
+**Experimeting with different values for alpha:** COME BACK TO THIS
+
+## Exercise 4: Using the OLED driver on the PyBench Board
+
+*Files:* lab4task4.py, user.py <br />
+
+This time, we communicate with the PyBench directly using PuTTY rather than MATLAB.<br />
+
+To check the board and computer were communicating, the blue LED was toggled. It turned on and offaccordingly. However, the oled display struggled with ```oled.init_display()``` and ```oled.display()``` and these errors continued when either the _user.py_ or _lab4task4.py_ files were run (to run these files, they were first moved onto the SD card of the PyBench and then they could be called via the terminal).
+
+<img src="oled-error.jpg" alt="OLED error"/> <br />
+
+In the end, the ```i2c_devid``` number from line 22 in lab4task4.py neeed to be changed. i2c is a serial protocol, on 1 wire coming out of the CPU you can connect more than 1 i2c device, each one has an address, so the first part of the serial message sent on the wire might address = 1 and the i2c device with address will listen for the rest of the message. Devices come pre-programmed with an address, sometimes the device has a pin or 2 to select which address it should use (out of a choice). If you look up the chip used in the display it should tell you
+
+Changing the ```i2c_devid``` number gave the desired result.
+
+<img src="hello-world.jpg" alt="Task 4"/> <br />
+
+**Additional task:** COME BACK TO THIS
+
+## Exercise 5: Using the IMU driver on PyBench Board
+
+Again, after changing the i2c number, this all worked well.
+
+<img src="task5-flat.jpg" alt="Task 5 flat"/> 
+<img src="task5-tilted.jpg" alt="Task 5 tilted"/>
+<img src="task5-tilted2.jpg" alt="Task 5 tilted"/> <br />
