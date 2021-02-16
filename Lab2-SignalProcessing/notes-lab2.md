@@ -84,6 +84,11 @@ S <br />
 <img src="ex2_square.jpeg" alt="Square wave" width="500"/> <nobr>
 <img src="weird-sine-wave.jpeg" alt="Weird wave" width="500"/>
 
+**Explanation:**
+
+<img src="lab2task2_square.png" alt="Square wave"/>
+<img src="lab2task2_triangle.png" alt="Triangle wave"/>
+
 ## Exercise 3: Capture and analyse microphone signals
 
 **Files for task3:** lab2task3.m <br />

@@ -58,6 +58,7 @@ Function uses the inbuilt MATLAB function fft to compute the frequency spectrum.
 However, when you look at the spectrum, the frequencies of the two main waves is clear as these have the greatest amplitude. The amplitude for all the remaining noise is less than 0.1. This shows how important it is to use both the waveform and the frequency spectrum when inferring a signal. Using the rough shape of the waveform tells us there are sine waves present and the frequency spectrum tells us the frequencies. 
 
 <img src="noisy_wave.png" alt="A noisy wave"/>
+<img src="noisy_wave_spectrum.png" alt="A noisy wave spectrum"/>
 
 ## Exercise 5: Projection using dot product
 
@@ -77,9 +78,9 @@ dot_product = v1*transpose(v2)
 
 <br /> Note that s3 is a signal of frequency 401Hz and amplitude 0.5.
 
-**Notes on results:** Finding the dot product of two signsls tells us how much they have in common (ie how similar they are). A positive dot product means that two signals have a lot in common, meanwhile, a negative dot product means that the signals are related in a negative way, like vectors pointing in opposing directions. <br />
+**Notes on results:** Finding the dot product of two signsls tells us how much they have in common (ie how similar they are). A positive dot product means that two signals have a lot in common, meanwhile, a negative dot product means that the signals are related in a negative way, like vectors pointing in opposing directions. NB: for two parallel vectors, the dot product equals the product of their magnitudes. For two perpendicular vectors, the dot product equals 0 since cos(90) = 0.<br />
 
-This means that signals s1 and s2 are strongly related, meanwhile, signals s1 and s2 or s1 and s3 are not strongly related at all as their dot product is close to 0.
+This means that signals s1 and s2 or s1 and s3 are strongly unrelated, meanwhile, signals s1 + s2 and s1 and s3 are  strongly related.
 
 ## Further exploration
 
