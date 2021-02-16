@@ -130,7 +130,13 @@ The frequency spectrum of these signals could also be found by finding the Fouri
 
 Similar to task3, the code was modified by introducing a while loop. Here we apply a window (known as Hamming Window) to the signal before calculating the spectrum. <br />
 
-**The hamming window:**  The graph _task4a hamming window spectrum.png_ shows the signal with the hamming window in red. Introducing the Hamming Window meant that the small amount of noise that existed before was removed, however, a lot of noise still remained. This could be due to the poor quality of the microphone. The improvement in accuracy can also be seen by the sharpness of the peaks increasing when a hamming window is implemented.<br />
+The graph _task4a hamming window spectrum.png_ shows the signal with the hamming window in red. Introducing the Hamming Window meant that the small amount of noise that existed before was removed, however, a lot of noise still remained. This could be due to the poor quality of the microphone. The improvement in accuracy can also be seen by the sharpness of the peaks increasing when a hamming window is implemented.<br />
+
+**Window functions:** In the time domain, extracting a portion of signal from an everlasting sinusoidal signal is the same as multiplying the everlasting sinewave with a rectangular function. In the frequency domain, this is called _convolution_. However, when this is done, the amplitude of the resulting spectrums is half that of the first. This is called _spectral spreading_ and leads to _reduced spectral resolution_. I.e:
+
+<img src="convolution.jpg" alt="Showing the effects of convolution."/>
+
+When there is more than one frequency in the original signal before convolution, there will be more _sidelobes_. The reason for this is that the rectangular window has abrupt changes at the edges of the window. To remedy this, we use windows such as the Hamming, Hanning or Barlett windows. These are wide (to produce a narrow mainlobe) and do not have such a big disconuity at the edges (ie shallower gradient at edges) (this reduces sidelobes at high frequencies). 
 
 **Difference between Hanning and Hamming window:** The difference between them is that the Hanning window touches zero at both ends, removing any discontinuity. The Hamming window stops just shy of zero, meaning that the signal will still have a slight discontinuity.<br />
 
