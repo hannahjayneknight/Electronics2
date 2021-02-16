@@ -1,6 +1,61 @@
 ## Exercise 1: Check that Matlab on your computer is talking to PyBench hardware
 
-**Issues:** Took some time to recognise PyBench. Try restarting MATLAB a few times if it happens again.<br />
+**Issues:** Took some time to recognise PyBench. Try restarting MATLAB a few times if it happens again. <br />
+
+**Notes on serial ports:** 
+- The name "serial" comes from the fact that a serial port "serializes" data. This means it takes a byte of data and transmits the 8 bits in the byte one at a time.
+- The advantage of this is that a serial port only needs one wire to transmit 8 bits. 
+- Disadvantage is that takes 8 times longer to transmit than using 8 wires. 
+- Lower cable costs.
+- Make cables smaller.
+- Before each byte of data, a serial port sends a start bit, which is a single bit with a value of 0.
+- After each byte of data, it sends a stop bit to signal the byte is complete.
+- May also send a parity bit which helps confirm the information sent is correct.
+- Also called _communication ports_ (hence the labelling "COM"). 
+- Rely on a _Universal Asynchronoush Receiver/ Transmitter (UART)_ chip. This is what takes the parallel output of the computer's system bus and transforms it into serial form. 
+- Appearance: A serial port is male in gender, and has either 9 pins or 25 pins. The shape of the port is slightly D-shaped. Only very old computers have a 25-pin serial port.
+<br />
+
+<img src="serial_port.jpg" alt="Serial port"/>
+
+**Notes on parallel ports:** 
+- Quicker than a serial port as has 8 times as many wires.
+- Needs 8 wires to transmit 8 bits.
+- Appearance: A parallel port is female in gender, and has 25 pins. The shape of the port is slightly D-shaped. On most computers, there is only one parallel port.
+<br />
+
+<img src="parallel_port.jpg" alt="Parallel port"/>
+
+**Notes on USB ports:** 
+- Will likely take over both serial and parallel ports.
+- Short for _Universal Serial Bus_.
+- The main advantage of USB is that the device can be plugged in or plugged out without the need of restarting the PC.
+- Contains 4 pathways: _Vbus_ and _Gnd_ provide power to the USB device meanwhile _Data +_ and _Data -_ transfer data.
+- This type of port gives you a single, standardized and easy-to-use method of connecting up to 127 different devices to a computer. 
+- _A_ connectors head "upstream" toward the computer.
+- _B_ connectors head "downstream" and connect to individual devices.
+- These different connectors mean it's impossible to get confused about which way to connect.
+- _Enumeration_ occurs when the host powers up. It is when the host queries all the devices connected to the bus and assigns each one an address. It also finds out what type of data each device wishes to transfer:
+    - An _interrupt_ is a device such as a mouse which sends very little data.
+    - A _bulk_ device is one like a printer which receives data in one big packet. A block of data is sent to the printer (in 64-byte chunks) and verified to make sure it's correct.
+    - An _isochronous_ device is one like a speaker which streams between the device and the host in real-time and there is no error correction. 
+- A USB 2.0 cable has 4 wires in total. The USB 3.0 standard _adds_ four more wires for data transmission. While USB 2.0 can only send data in one direction at a time (downstream or upstream), USB 3.0 can transmit data in both directions simultaneously.
+- 
+<br />
+
+<img src="USB-AB-CONNECTORS.png" alt="USB A vs USB B"/>
+
+<img src="inside_usb.jpg" alt="Inside a USB cable."/>
+
+**Sources:** https://computer.howstuffworks.com/serial-port.htm#:~:text=Before%20each%20byte%20of%20data,ports%2C%20are%20bi%2Ddirectional. <br />
+
+https://kb.laplink.com/index.php/article/printer/117 <br />
+
+https://www.electroschematics.com/usb-how-things-work/ <br />
+
+https://computer.howstuffworks.com/usb.htm
+
+
 
 
 ## Exercise 2: Using PyBench to generate signals via Matlab and explore their spectra
