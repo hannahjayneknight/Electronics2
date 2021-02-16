@@ -107,9 +107,12 @@ NB: The ```polyval()``` method evaluates a polynomial.
 **Comparing manual and automatic measurements:** The highest gain occurs roughly at the same point in both results at 5Hz. However, the magnitude is higher on task 3a which is further from the theoretical prediction. Furthermore, the gain starts at a higher value for task 3a compared with 3. <br />
 
 **Explanation of results:** The difference between our predictions for the gain and the measured values could be due to the following factors:
+- **The non-linearity of our system plays a bigger part than we realised.**
+From the graph produced in Task1 (DC characteristics of the Bulb Board), if you measure the gradient at 1.5V you get the gain of the system (called the _operating point_).
+<img src="differences_in_gain.jpg" alt="Comparing the gain measure to the theoretical gain."/> 
+Other reasons include:
 - Tolerances of the components in the system
 - Inaccuracies of the measuring equipment
-- The non-linearity of our system plays a bigger part than we realised.
 - Our model does not consider all the parasitics and unwanted effects that might exist in the real system.
 
 
@@ -124,3 +127,7 @@ The appearance of transient behaviour depends on the circuit and the stimulus th
 **Transient response of the Bulb Board:** The graph below shows how our Bulb Board displays an _underdamped response_. This means that it oscilates for a while before reaching a steady-state. This aligns with the frequency response graph which had a peak - a characteristic of an underdamped system - rather than decreasing from a starting value with no peak.
 
 <img src="step-respsonse.png" alt="Step response"/> 
+
+**Why one oscillation is bigger than the other:** the oscillation amplitude of the rising step is significantly bigger than that of the falling step. When we go up to 1.5 (on the rising step) we operate over the region with a certain gain (big graident). When we go down to 1v, we operate in a different part with a very different gradient (much smaller). That accounts for the differnece in the oscillation amplitude.
+
+<img src="lab3ex4.png" alt="Different height of oscillations"/> 

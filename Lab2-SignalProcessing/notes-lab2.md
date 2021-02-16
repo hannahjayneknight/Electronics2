@@ -84,7 +84,11 @@ S <br />
 <img src="ex2_square.jpeg" alt="Square wave" width="500"/> <nobr>
 <img src="weird-sine-wave.jpeg" alt="Weird wave" width="500"/>
 
-**Explanation:**
+**Explanation:** The highest peak of the frequency spectrum is at the fundamental frequency and there are additional peaks at harmonic frequencies which can be found using Fourier Series. <br /> 
+
+For a triangular wave, amplitude drops off in proportion to frequency squared.For a square wave, amplitude drops in proportion to frequency. <br /> 
+
+The frequency spectrum of these signals could also be found by finding the Fourier transform of a one pulse of the signal. This single pulse is convoluted with a train of pulses to make it periodic.
 
 <img src="lab2task2_square.png" alt="Square wave"/>
 <img src="lab2task2_triangle.png" alt="Triangle wave"/>
@@ -101,11 +105,11 @@ S <br />
 
 **What:** task3 was run and a teammate whistled into her microphone which recorded a snapshot of her voice. On the other hand, task3a continously collects data and plots in the spectrum using a while loop. <br />
 
-**Notes:** A very nice frequency and time plot were produced by MATLAB. <br />
+**Changing frequency:** We changed the sampling frequency to 500 Hz (which is less than 2 times the frequency of the tuning fork wave) to see the effect of aliasing. The resulting frequency spectrum had a peak at 50 Hz instead of the correct frequency of 440 Hz which is due to the fact that the high frequencies have folded back into the spectrum of the discrete time series and appeared as a lower frequency. The result can be seen in the following image. <br />
 
-We changed the sampling frequency to 500 Hz (which is less than 2 times the frequency of the tuning fork wave) to see the effect of aliasing. The resulting frequency spectrum had a peak at 50 Hz instead of the correct frequency of 440 Hz which is due to the fact that the high frequencies have folded back into the spectrum of the discrete time series and appeared as a lower frequency. The result can be seen in the following images: tunning fork aliased.png <br />
+<img src="tunning fork aliased.png" alt="Aliasing affect"/>
 
-Increasing the number of samples (N) collected by the microphone improved the precision of the frequency spectrum peak. On the spectrum, this looks like a sharper peak with no curves either side. This effect is due to the fact that increasing the number of samples means that the mean value of the signal is more accurate. The mean value represents the DC offset which we want to remove.  DC offset occurs in the capturing of sound, before it reaches the recorder, and is normally caused by defective or low-quality equipment (more information can be found at: https://en.wikipedia.org/wiki/DC_bias). In conclusion, by increasing the number of samples, we increase the accuracy of the mean of the signal, which increases the accuracy of the DC offset which is removed, so what is left is a more accurate frequency peak. <br />
+**Changing number of samples:** Increasing the number of samples (N) collected by the microphone improved the precision of the frequency spectrum peak. On the spectrum, this looks like a sharper peak with no curves either side. This effect is due to the fact that increasing the number of samples means that the mean value of the signal is more accurate. The mean value represents the DC offset which we want to remove.  DC offset occurs in the capturing of sound, before it reaches the recorder, and is normally caused by defective or low-quality equipment (more information can be found at: https://en.wikipedia.org/wiki/DC_bias). In conclusion, by increasing the number of samples, we increase the accuracy of the mean of the signal, which increases the accuracy of the DC offset which is removed, so what is left is a more accurate frequency peak. <br />
 
 <img src="whistle freq domain.png" alt="Whistle frequency domain" width="500"/> <nobr>
 <img src="whistle time domain.png" alt="Whistle time domain" width="500"/>
@@ -127,6 +131,8 @@ Increasing the number of samples (N) collected by the microphone improved the pr
 Similar to task3, the code was modified by introducing a while loop. Here we apply a window (known as Hamming Window) to the signal before calculating the spectrum. <br />
 
 **The hamming window:**  The graph _task4a hamming window spectrum.png_ shows the signal with the hamming window in red. Introducing the Hamming Window meant that the small amount of noise that existed before was removed, however, a lot of noise still remained. This could be due to the poor quality of the microphone. The improvement in accuracy can also be seen by the sharpness of the peaks increasing when a hamming window is implemented.<br />
+
+**Difference between Hanning and Hamming window:** The difference between them is that the Hanning window touches zero at both ends, removing any discontinuity. The Hamming window stops just shy of zero, meaning that the signal will still have a slight discontinuity.<br />
 
 **Notes:**  Using a log scale provides much higher sensitivity than a linear scale. The plot is also normalized in a way that the maximum frequency component is at 0dB, i.e. all spectral components are relatively scaled to the peak spectral value. Finally, the magnitude axis is limited to 0dB to -60dB.<br />
 
