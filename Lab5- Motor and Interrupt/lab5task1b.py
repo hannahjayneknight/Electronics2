@@ -1,4 +1,4 @@
-'''    Marks the start of comment section
+'''
 -------------------------------------------------------
 Name: Lab 5 Task 1b - Control motor using potentiometer
 Creator:  Peter YK Cheung

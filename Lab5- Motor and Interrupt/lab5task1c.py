@@ -33,7 +33,7 @@ oled = OLED_938(pinout={'sda': 'Y10', 'scl': 'Y9', 'res': 'Y8'}, height=64,
                    external_vcc=False, i2c_devid=60)
 oled.poweron()
 oled.init_display()
-oled.draw_text(0,0, 'Lab 5 - Exercise 1c')
+# oled.draw_text(0,0, 'Lab 5 - Exercise 1c')
 oled.display()
 
 def A_forward(value):
@@ -69,8 +69,10 @@ DEADZONE = 5
 speed = 0
 
 while True:				# loop forever until CTRL-C
+	raw_speed = pot.read()
 	speed = int((pot.read()-2048)*200/4096)
-	oled.draw_text(0,40,'Motor Drive:{:5d}%'.format(speed))
+	oled.draw_text(0,0,'Motor Drive:{:5d}%'.format(speed)) # {:5d} takes an integer argument and assigns a minimum width of 5
+	oled.draw_text(0,40,'Motor Speed:{:d}'.format(raw_speed))
 	oled.display()
 	if (speed >= DEADZONE):		# forward
 		A_forward(speed)
