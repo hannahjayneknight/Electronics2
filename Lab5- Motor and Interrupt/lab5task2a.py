@@ -1,6 +1,6 @@
-'''    Marks the start of comment section
+'''
 -------------------------------------------------------
-Name: Lab 4 Exercise 3a - Detect speed of motor by polling
+Name: Lab 5 Exercise 2a - Detect speed of motor by polling
 Creator:  Peter YK Cheung
 Date:   28 Feb 2016
 Revision:  1.0
@@ -32,7 +32,7 @@ oled = OLED_938(pinout={'sda': 'Y10', 'scl': 'Y9', 'res': 'Y8'}, height=64,
                    external_vcc=False, i2c_devid=60)
 oled.poweron()
 oled.init_display()
-oled.draw_text(0,0, 'Lab 5 - Exercise 3a')
+oled.draw_text(0,0, 'Lab 5 - Exercise 2a')
 oled.display()
 
 # Define pins for motor speed sensors
@@ -76,6 +76,7 @@ A_count = 0
 tic = pyb.millis();
 
 while True:				# loop forever until CTRL-C
+	pyb.delay(1)
 	# detect rising edge on sensor A
 	if (A_state == 0) and (A_sense.value()==1):	# rising edge detected on A
 		A_count += 1
