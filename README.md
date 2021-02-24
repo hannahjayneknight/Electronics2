@@ -83,3 +83,13 @@ Tasks:
 <img src="Lab4- IMU and OLED Display/hello-world.jpg" alt="Task 4" width="400"/> 
 <img src="Lab4- IMU and OLED Display/task5-flat.jpg" alt="Task 5" width="400"/> <nobr>
 <img src="Lab4- IMU and OLED Display/task5-tilted.jpg" alt="Task 5" width="400"/> 
+
+## Lab5 - Motor and Interrupt
+
+Link to notes:  <br />
+
+Tasks:
+1. 
+
+<img src="Lab5- Motor and Interrupt/" alt="" width="400"/><nobr>
+<img src="Lab5- Motor and Interrupt/" alt="" width="400"/>
