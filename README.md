@@ -86,10 +86,12 @@ Tasks:
 
 ## Lab5 - Motor and Interrupt
 
-Link to notes:  <br />
+Link to notes:  https://github.com/hannahjayneknight/Electronics2/blob/main/Lab5-%20Motor%20and%20Interrupt/notes-lab5.md <br />
 
 Tasks:
-1. 
+1. Changing the speed of the motors using the 10K ohm potentiometer and reading the value set using PuTTY.
+2. Measuring the speed of the motors using oscilloscope readings and polling. Displaying the measured speed on the OLED screen.
+3. Measuring the speed of the motors using interrupts.
 
-<img src="Lab5- Motor and Interrupt/" alt="" width="400"/><nobr>
-<img src="Lab5- Motor and Interrupt/" alt="" width="400"/>
+<img src="Lab5- Motor and Interrupt/usinginterrupts.jpg" alt="" width="400"/><nobr>
+<img src="Lab5- Motor and Interrupt/oscilloscope_fastest.jpg" alt="" width="400"/>
