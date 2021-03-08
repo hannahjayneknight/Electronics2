@@ -36,7 +36,7 @@ oled.display()
 
 # define ports for microphone, LEDs and trigger out (X5)
 mic = ADC(Pin('Y11'))
-MIC_OFFSET = 1523		# ADC reading of microphone for silence
+MIC_OFFSET = 1600		# ADC reading of microphone for silence
 dac = pyb.DAC(1, bits=12)  # Output voltage on X5 (BNC) for debugging
 b_LED = LED(4)		# flash for beats on blue LED
 
