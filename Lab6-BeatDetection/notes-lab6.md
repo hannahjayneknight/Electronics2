@@ -64,4 +64,7 @@ The PyBench had to be restarted a few times until the blue LED flashed. Then, it
 
 Other things to note:
 - Playing the music from my phone and holding it close to the PyBench was more succesful than using my laptop.
-- As the layers in the music get more complex, PyBench struggles more to detect where the main beats are. 
+- As the layers in the music get more complex, PyBench struggles more to detect where the main beats are.
+- PyBench only seems to detect clear, distinct beats that have a second between them. When beats are played too quickly, it does not pick them all up.
+
+## Improving the beat_detect_0.py file
