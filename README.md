@@ -95,3 +95,10 @@ Tasks:
 
 <img src="Lab5- Motor and Interrupt/usinginterrupts.jpg" alt="" width="400"/><nobr>
 <img src="Lab5- Motor and Interrupt/oscilloscope_fastest.jpg" alt="" width="400"/>
+
+## Lab6 - Beat detection
+
+Link to notes: <br />
+
+Tasks:
+1. 
