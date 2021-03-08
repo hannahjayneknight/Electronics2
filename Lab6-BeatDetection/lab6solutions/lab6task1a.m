@@ -12,7 +12,7 @@ xlabel('Sample no');
 ylabel('Signal (v)');
 title('Stay Alive Music');
 % Filter music with moving average filter
-N = size(x);
+N = size(x); % sets the number of taps to be the same size as the amount of noise added
 for i=4:N
     y(i) = (x(i)+x(i-1)+x(i-2)+x(i-3))/4;
 end

@@ -13,7 +13,7 @@ ylabel('Signal (v)');
 title('Stay Alive Music');
 % Filter music with moving average filter
 N = size(x);
-N_tap = 20
+N_tap = 100
 for i=N_tap:N
     temp = 0;
     for j = 0:N_tap-1
@@ -22,9 +22,9 @@ for i=N_tap:N
     y(i) = temp/N_tap;
 end
 % Play the original
-sound(x, fs)
-disp('Playing the original - press return when finished')
-pause;
+%sound(x, fs)
+%disp('Playing the original - press return when finished')
+%pause;
 sound(y, fs)
 disp('Playing the filter music')
 
