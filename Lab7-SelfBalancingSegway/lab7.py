@@ -20,7 +20,7 @@ oled.draw_text(0,10, 'Milestone 1: Driving')
 oled.draw_text(0,20, 'Press USR button')
 oled.display()
 
-print('Performing Milestone 1')
+print('Performing Milestone 1') # these are to help with debugging as will show up on PuTTY
 print('Waiting for button press')
 trigger = pyb.Switch()
 while not trigger(): # wait for trigger to be pressed
