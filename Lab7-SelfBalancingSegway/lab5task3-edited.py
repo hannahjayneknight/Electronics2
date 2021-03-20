@@ -1,23 +1,15 @@
-'''    Marks the start of comment section
+'''
 -------------------------------------------------------
-Name: Challenge 3 - Electronics oral 2021
-Creator:  	Hannah Knight
-Date:   	10 March 2021
-Revision: 	1
+Name: Lab 4 Exercise 3 - Detect speed of motor using interrupts
+Creator:  Peter YK Cheung
+Date:   28 Feb 2016
+Revision:  1.0
 -------------------------------------------------------
-Measures the pitch angle, passes it through a 
-complementary filter and sets this to be the speed of the 
-motors. The pitch angle and the motor speeds are displayed
- on the OLED screen in degrees and rps. 
--------------------------------------------------------
-'''    
-import pyb
-from pyb import LED, Pin, Timer, ADC
-from oled_938 import OLED_938
-from mpu6050 import MPU6050
+'''
 
-# Define LEDs
-b_LED = LED(4)
+import pyb
+from pyb import Pin, Timer, ADC
+from oled_938 import OLED_938	# Use OLED display driver
 
 # Define pins to control motor
 A1 = Pin('X3', Pin.OUT_PP)		# Control direction of motor A
@@ -32,14 +24,16 @@ tim = Timer(2, freq = 1000)
 motorA = tim.channel (1, Timer.PWM, pin = PWMA)
 motorB = tim.channel (2, Timer.PWM, pin = PWMB)
 
+# Define 5k Potentiometer
+pot = pyb.ADC(Pin('X11'))
+
 # I2C connected to Y9, Y10 (I2C bus 2) and Y11 is reset low active
 oled = OLED_938(pinout={'sda': 'Y10', 'scl': 'Y9', 'res': 'Y8'}, height=64,
                    external_vcc=False, i2c_devid=60)
 oled.poweron()
 oled.init_display()
-
-# IMU connected to X9 and X10
-imu = MPU6050(1, False)    	# Use I2C port 1 on Pyboard
+oled.draw_text(0,0, 'Lab 5 - Exercise 3')
+oled.display()
 
 def isr_motorA(self, line):
 	countA += 1
@@ -80,25 +74,7 @@ def B_back(value):
 def B_stop():
 	B1.high()
 	B2.high()
-
-def read_imu(dt):
-	# prints the pitch and roll angles to the screen
-	# both have been passed through a complementary filter
-	global g_pitch
-	alpha = 0.7    # larger = longer time constant
-	pitch = int(imu.pitch())  # pitch mesaured using accelerometer - measured in degrees
-	g_pitch = alpha*(g_pitch + imu.get_gy()*dt*0.001) + (1-alpha)*pitch # derived pitch using gyro
-	# show text
-	oled.clear()
-	oled.draw_text(0,0, "Pitch angle: {:.2f}".format(g_pitch))
-	oled.display()
-    return g_pitch
-
-'''
-The measurements for roll angle seem wrong - check this in the morning.
-However, this may be unnecessary as challenge 3 only uses pitch.
-'''
-
+	
 # Initialise variables
 DEADZONE = 5
 speed = 0
@@ -106,9 +82,6 @@ A_speed = 0
 A_count = 0
 B_speed = 0
 B_count = 0
-g_pitch = 0
-g_roll = 0 
-tic = pyb.millis()
 
 #-------  Section to set up Interrupts ----------
 def isr_motorA(dummy):	# motor sensor ISR - just count transitions
@@ -142,17 +115,11 @@ speed_timer.callback(isr_speed_timer)
 
 #-------  END of Interrupt Section  ----------
 
-
-
-while True:
-    # NB: 
-    # max motor speed = 0.00
-    # min motor speed = 3.18
-	b_LED.toggle()
-	toc = pyb.millis()
-	speed = read_imu(toc-tic)
-    speed = speed/10/3
-    if (speed >= DEADZONE):		# forward
+while True:				# loop forever until CTRL-C
+	
+	# drive motor - controlled by potentiometer
+	speed = int((pot.read()-2048)*200/4096) # EDIT HERE
+	if (speed >= DEADZONE):		# forward
 		A_forward(speed)
 		B_forward(speed)
 	elif (speed <= -DEADZONE):
@@ -160,11 +127,18 @@ while True:
 		B_back(abs(speed))
 	else:
 		A_stop()
-		B_stop()
+		B_stop()	
 
-	tic = pyb.millis()
-
-    # Display new speed
+	# Display new speed
 	oled.draw_text(0,20,'Motor A:{:5.2f} rps'.format(A_speed/39))	
 	oled.draw_text(0,40,'Motor A:{:5.2f} rps'.format(B_speed/39))	
 	oled.display()
+	
+	pyb.delay(100)
+
+
+
+
+
+
+	

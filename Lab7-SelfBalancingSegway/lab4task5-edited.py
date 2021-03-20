@@ -57,6 +57,11 @@ def read_imu(dt):
 	oled.draw_text(0,0, "(All measured in degrees)")
 	oled.display()
 
+'''
+The measurements for roll angle seem wrong - check this in the morning.
+However, this may be unnecessary as challenge 3 only uses pitch.
+'''
+
 g_pitch = 0
 g_roll = 0 
 tic = pyb.millis()		

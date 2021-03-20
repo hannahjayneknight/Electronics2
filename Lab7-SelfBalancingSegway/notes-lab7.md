@@ -58,4 +58,11 @@ f.close()                   # close the file
 
 **How:** 
 
+1. _lab4task5.py_ shows two pendulums showing the raw pitch angle and the filtered pitch angel. This was edited to display the numerical pitch and roll angles that had both been passed through a complementary filter on the OLED screen. 
+
+The roll angle seemed wrong as didn't show an angle close to 0 degrees in the neutral position and didn't get close to 90 degrees when perpendicular to the neutral. Using ```imu.roll()``` it was observed that the roll angle was constantly 15 degrees off. So this was edited to account for the offset.
+
+However, the complementary filter uses ```imu.get_gx()``` and it is unknown what the error is in this???
+
+2. _lab5task3.py_ accurately displays the speed of both motors using interrupts.
 
