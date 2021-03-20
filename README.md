@@ -98,7 +98,11 @@ Tasks:
 
 ## Lab6 - Beat detection
 
-Link to notes: <br />
+Link to notes: https://github.com/hannahjayneknight/Electronics2/blob/main/Lab6-BeatDetection/notes-lab6.md <br />
 
 Tasks:
-1. 
+1. Using a moving average filter to remove noise from a sound file.
+2. Using a pre-written beat detection program to flash a blue LED when a beat is detected.
+
+<img src="Lab7-SelfBalancingSegway/stay-alive-N=20-filtered.png" alt="" width="400"/><nobr>
+<img src="Lab7-SelfBalancingSegway/stay-alive-sampleNo-vs-signal.png" alt="" width="400"/>
