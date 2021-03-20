@@ -20,20 +20,19 @@ The _main.py_ file has been edited so that it is ready to be filled with command
 - Sudo-code for a dancing segway can be found in the *dancing_segway.py* file.
 
 ## Tip 4 - Pitch angle estimation
+Here is a function to estimate the pitch angle using a complementary filter. 
 
-Come back to this once completed challenge 4.
+```
+def pitch_estimate ( pitch, dt, alpha ):
+    theta.imu.pitch()
+    pitch_dot = imu.get_gy()
+    pitch = alpha*(pitch+pitch_dot*dt) + (1-alpha)*theta
+    return ( pitch, pitch_dot )
+```
 
-## Tip 5 - PID controller
-
-Come back to this once completed challenge 4.
-
-## Tip 6 - Tuning the PID controller
-
-Come back to this once completed challenge 4.
-
-## Tip 7 - Pseudo-code for self-balancing, dancing segway
-
-Come back to this once completed challenge 4.
+**From Peter:** dt is delta time, the
+time since the last reading in the program loop. You find dt with tic and pyb.millis(). Don’t forget to adjust
+dt to seconds in your equation.
 
 ## Tip 8 - reading from text files in python
 
@@ -52,3 +51,11 @@ for line in f:
     print(line)             # print one line at a time in f until end-of-file
 f.close()                   # close the file
 ```
+
+## CHALLENGE 2
+
+**What:** This task is to Combine what you have learned in lab 4 and 5 so that you can control the speed and direction of the motors by tilting the PyBench board. One motor controlled with pitch angle and the other with roll angle. You should display the speed of each motor (revolution per second) on the LED display alongside the angles.
+
+**How:** 
+
+
