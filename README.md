@@ -7,7 +7,7 @@ All my work associated with the Electronics 2 module, year 2, Design Engineering
 
 Link to notes: https://github.com/hannahjayneknight/Electronics2/blob/main/Lab1-IntroToMATLAB/notes-lab1.md <br />
 
-Tasks:
+**Tasks:**
 1. Function that generates a sine signal.
 2. Function that plots a frequency spectrum.
 3. Comining two sine waves of different frequencies and amplitudes and plotting the resulting waveform and frequency spectrum.
@@ -25,7 +25,7 @@ Tasks:
 
 Link to notes: https://github.com/hannahjayneknight/Electronics2/blob/main/Lab2-SignalProcessing/notes-lab2.md <br />
 
-Tasks:
+**Tasks:**
 1. Check that Matlab on your computer is talking to PyBench hardware
 2. Using PyBench to generate sine, square and triangular signals via Matlab.
 3. Capture and plot signals from whistling. See the effect of changing the **sampling frequency** or **number of samples** collected. Used a while loop to continously plot the signal.
@@ -46,7 +46,7 @@ Tasks:
 
 Link to notes: https://github.com/hannahjayneknight/Electronics2/blob/main/Lab3-%20System%20Characterisation%20%26%20Transfer%20Function/notes-lab3.md <br />
 
-Tasks:
+**Tasks:**
 1. Investigating the DC characteristics of the Bulb Board.
     1. The ```pb.dc(voltage)``` and  ```pb.get_one()``` methods were used in the MATLAB command line to test communication with the Bulb Board.
     2. The ```pb.dc(voltage)``` method was used to manually change the DC value and see the lowest value for which the bulb is on and the lowest value for which the bulb is at maximum brightness.
@@ -70,7 +70,7 @@ Tasks:
 
 Link to notes: https://github.com/hannahjayneknight/Electronics2/blob/main/Lab4-%20IMU%20and%20OLED%20Display/notes-lab4.md<br />
 
-Tasks:
+**Tasks:**
 1. Using the accelerometer and gyroscope
 2. Plotting a 3d model of the board using the accelerometer and gyroscope. Noticing the affects of noise for both sensors and their differences.
 3. Correcting the affects of noise from task 2 by implementing a complementary filter (one that contains 2 different filters, one each for the accelerometer and gyroscope)
@@ -88,7 +88,7 @@ Tasks:
 
 Link to notes:  https://github.com/hannahjayneknight/Electronics2/blob/main/Lab5-%20Motor%20and%20Interrupt/notes-lab5.md <br />
 
-Tasks:
+**Tasks:**
 1. Changing the speed of the motors using the 10K ohm potentiometer and reading the value set using PuTTY.
 2. Measuring the speed of the motors using oscilloscope readings and polling. Displaying the measured speed on the OLED screen.
 3. Measuring the speed of the motors using interrupts.
@@ -100,9 +100,18 @@ Tasks:
 
 Link to notes: https://github.com/hannahjayneknight/Electronics2/blob/main/Lab6-BeatDetection/notes-lab6.md <br />
 
-Tasks:
+**Tasks:**
 1. Using a moving average filter to remove noise from a sound file.
 2. Using a pre-written beat detection program to flash a blue LED when a beat is detected.
 
 <img src="Lab7-SelfBalancingSegway/stay-alive-N=20-filtered.png" alt="" width="400"/><nobr>
 <img src="Lab7-SelfBalancingSegway/stay-alive-sampleNo-vs-signal.png" alt="" width="400"/>
+
+## Lab6 - The oral challenges
+
+Link to notes: <br />
+
+**What:** A choice of challenges were set for the final assessment, with varying difficulty. I decided to start with a simpler challenge since time was limited, and then make it more complex if I had the time. Some tips were provided, too, and these were worked through to help with the challenge.
+
+1. Using the IMU to control the speed and direction of the motors.
+2. Adding PID control to ensure both motors are always running at the same speed.
