@@ -120,11 +120,11 @@ while True:				# loop forever until CTRL-C
 	# drive motor - controlled by potentiometer
 	speed = int((pot.read()-2048)*200/4096)
 	if (speed >= DEADZONE):		# forward
-		A_forward(speed)
-		B_forward(speed)
+		A_back(speed)
+		B_back(speed)
 	elif (speed <= -DEADZONE):
-		A_back(abs(speed))
-		B_back(abs(speed))
+		A_forward(abs(speed))
+		B_forward(abs(speed))
 	else:
 		A_stop()
 		B_stop()	

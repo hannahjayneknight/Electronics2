@@ -64,5 +64,12 @@ The roll angle seemed wrong as didn't show an angle close to 0 degrees in the ne
 
 However, the complementary filter uses ```imu.get_gx()``` and it is unknown what the error is in this???
 
-2. _lab5task3.py_ accurately displays the speed of both motors using interrupts.
+2. _lab5task3.py_ accurately displays the speed of both motors using interrupts. However, it adjusts the speed of the motors according to the potentiometer. This was edited to adjust the speed of the motors according to the pitch angle. It was also edited so that the PyBench acts like a real segway so that when you lean forward, the motors drive forward and when you lean backwards the motors drive backwards.
 
+It was decided to omit the roll angle since this does not seem to be measuring accurately - should I test this again and try to include it?
+
+3. The OLED screen displays the speed of both motors and the pitch angle.
+
+4. The _main.py_ file was edited so that _challenge2.py_ automatically runs when the dip switches are in the 010 (2) position (2).
+
+## CHALLENGE 3
