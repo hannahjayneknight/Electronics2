@@ -8,6 +8,7 @@ Revision:  1.0
 '''
 
 import pyb
+import time
 from pyb import LED, Pin, Timer, ADC
 from oled_938 import OLED_938	# Use OLED display driver
 from mpu6050 import MPU6050
@@ -36,6 +37,17 @@ oled = OLED_938(pinout={'sda': 'Y10', 'scl': 'Y9', 'res': 'Y8'}, height=64,
                    external_vcc=False, i2c_devid=60)
 oled.poweron()
 oled.init_display()
+oled.draw_text(0, 0, "Hannah Knight")
+oled.draw_text(0,20,"Challenge 2")	
+oled.draw_text(0,40,"Press the USR switch")	
+oled.display()
+
+print("Waiting for button press")
+trigger = pyb.Switch()	# create trigger switch object
+while not trigger():	# wait for trigger to be pressed
+	time.sleep(0.001)
+while trigger(): pass	# wait for release
+print("Button pressed - program running")
 
 def read_imu(dt):
 	# prints the pitch and roll angles to the screen
