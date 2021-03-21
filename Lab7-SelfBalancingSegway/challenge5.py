@@ -13,7 +13,7 @@ oled.init_display()
 # Code for running code only on USR button press
 ##
 oled.draw_text(0, 0, 'Hannah Knight')
-oled.draw_text(0, 10, 'Challenge 3')
+oled.draw_text(0, 10, 'Challenge 5')
 oled.draw_text(0, 20, 'Press USR button')
 oled.display()
 print('Performing Challenge 5')
@@ -45,23 +45,8 @@ motor_a = tim.channel(1, Timer.PWM, pin=PWMA)
 motor_b = tim.channel(2, Timer.PWM, pin=PWMB)
 
 ##
-# Code for tuning the  K parameters
-##
-global K_p
-K_p = 4
-global K_d
-K_d = 0
-global K_i
-K_i = 0
-
-
-scale = 2.0
-
-##
 # Code for pitch calculation and PID control
 ##
-print('pitch= '.format(imu.pitch()))
-print('gy= '.format(imu.get_gy()))
 
 def clamp(var, min_var, max_var):
     """ Function to clamp variables to a range """
@@ -87,15 +72,14 @@ def read_imu(dt):
 	pitch = int(imu.pitch())  # pitch mesaured using accelerometer - measured in degrees
 	g_pitch = alpha*(g_pitch + imu.get_gy()*dt*0.001) + (1-alpha)*pitch # derived pitch using gyro
 
-def pid_controller(pitch, pitch_dot, target, accum_pitch_error):
+def pid_controller(pitch, pitch_dot, target, accum_pitch_error, dt):
     """ Function to compute the PID control"""
+    K_p = 4
+    K_d = 0
+    K_i = 0
     clamp(target, -3, 3)
-    # Calculate pitch error
-    pitch_error = target - pitch # IS THIS MEANT TO BE NEGATIVE?
     # Compute the output W as sum of P, I, D terms
-    w = K_p * pitch_error + K_d * pitch_dot + K_i * accum_pitch_error # change pitch_dot to the change in pitch_error
-    # Accumulate the pitch error
-    accum_pitch_error += pitch_error
+    w = K_p * (target - pitch) + K_d * (pitch_error - (target - pitch)) + K_i * accum_pitch_error 
     # Limit pwm_value to +- 100
     w = clamp(w, -100, 100)
     return w
@@ -120,10 +104,12 @@ def stop(pin1, pin2):
     pin1.high()
     pin2.high()
 
+
 # Define input parameters
 init_pitch = 0
+pitch_error = 0
 setpoint = 0
-e_tao = 0
+accum_pitch_error = 0
 alpha_val = 0.9
 tic2 = pyb.millis()
 try:
@@ -132,15 +118,22 @@ try:
         dt_val = pyb.micros() - tic1
         if dt_val > 5000:
             p, p_dot = pitch_estimate(init_pitch, dt_val, alpha_val) # estimate pitch angle and pitch_dot
+            #print("Pitch angle: {:5.2f}".format(p))
+            #print("Rate of change of pitch angle: {:5.2f}".format(p_dot))
             tic1 += dt_val # update tic1
-            pwm_value = pid_controller(p, p_dot, setpoint, e_tao) # PID control
-            new_speed = scale * pwm_value    # use returned value to move motor
-            if new_speed >= 5:           # speed cannot be > 5
+            pwm_value = pid_controller(p, p_dot, setpoint, accum_pitch_error, dt_val) # PID control
+            pitch_error = setpoint - p
+            accum_pitch_error += setpoint - p
+            #print("pitch_error: {:5.2f}".format(pitch_error))
+            #print("accum_pitch_error: {:5.2f}".format(accum_pitch_error))
+            new_speed = 2 * pwm_value    # use returned value to move motor
+            print("PWM value: {:5.2f}".format(pwm_value))
+            if new_speed <= -30:
                 forward(motor_a, A2, A1, new_speed)
                 forward(motor_b, B1, B2, new_speed)
-            elif new_speed <= -5:           # speed cannot be < -5
-                backward(motor_a, A2, A1, new_speed)
-                backward(motor_b, B1, B2, new_speed)
+            elif new_speed >= 30:
+                backward(motor_a, A2, A1, new_speed) 
+                backward(motor_b, B1, B2, new_speed) 
             else:  # stop motors
                 stop(A2, A1)
                 stop(B1, B2)
