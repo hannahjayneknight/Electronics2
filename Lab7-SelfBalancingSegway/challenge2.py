@@ -143,7 +143,7 @@ tic = pyb.millis()
 
 while True:				# loop forever until CTRL-C
 
-        b_LED.toggle()
+    b_LED.toggle()
 	toc = pyb.millis()
 	read_imu(toc-tic)
 	tic = pyb.millis()
