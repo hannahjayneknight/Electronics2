@@ -83,6 +83,8 @@ _lab5task2b.py_ displayed the speeds of both motors on the display. Rarely were 
 
 **Explanation:** The while loop is continuously looking for a low-to-high transition on motor A sensor signal on pin Y4. Within the loop, you also continuously check to see if 100msec has elapsed. If yes, you save the transition count (in A_speed) and reset the counter. The continual checking program loop is known as “polling”. It is analogous to owning a telephone that has NO ringer. To see if anyone is calling, you need to “poll” the phone by picking it up and check to see if someone is one the line! This is a simple way to check, but it is extremely inefficient.
 
+<img src="hall-effect-sensor.jpg" alt="How the hall effect sensor works"/> 
+
 ## Exercise 3: Speed measurement using interrupt 
 
 The code for this exercise was edited to make _lab5task3.py_ which displays the accurate speed measurement (using interrupts) for _both_ motors using the OLED screen.
