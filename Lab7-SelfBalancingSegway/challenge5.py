@@ -72,14 +72,17 @@ def read_imu(dt):
 	pitch = int(imu.pitch())  # pitch mesaured using accelerometer - measured in degrees
 	g_pitch = alpha*(g_pitch + imu.get_gy()*dt*0.001) + (1-alpha)*pitch # derived pitch using gyro
 
-def pid_controller(pitch, pitch_dot, target, accum_pitch_error, dt):
+def pid_controller(pitch, pitch_dot, target, integral, dt):
     """ Function to compute the PID control"""
     K_p = 4
     K_d = 0
     K_i = 0
     clamp(target, -3, 3)
+    # integral term
+    integral += (setpoint - p) * K_i
+    integral = clamp(integral, 3000, -3000) # limit wind up
     # Compute the output W as sum of P, I, D terms
-    w = K_p * (target - pitch) + K_d * (pitch_error - (target - pitch)) + K_i * accum_pitch_error 
+    w = K_p * (target - pitch) + K_d * ((target - pitch) - previous_error) + integral 
     # Limit pwm_value to +- 100
     w = clamp(w, -100, 100)
     return w
@@ -107,11 +110,11 @@ def stop(pin1, pin2):
 
 # Define input parameters
 init_pitch = 0
-pitch_error = 0
+previous_error = 0
 setpoint = 0
-accum_pitch_error = 0
+integral = 0
 alpha_val = 0.9
-tic2 = pyb.millis()
+# tic2 = pyb.millis() for beat detection 
 try:
     tic1 = pyb.micros()
     while True:
@@ -121,17 +124,19 @@ try:
             #print("Pitch angle: {:5.2f}".format(p))
             #print("Rate of change of pitch angle: {:5.2f}".format(p_dot))
             tic1 += dt_val # update tic1
-            pwm_value = pid_controller(p, p_dot, setpoint, accum_pitch_error, dt_val) # PID control
-            pitch_error = setpoint - p
-            accum_pitch_error += setpoint - p
+            pwm_value = pid_controller(p, p_dot, setpoint, integral, dt_val) # PID control
+            previous_error = setpoint - p
             #print("pitch_error: {:5.2f}".format(pitch_error))
-            #print("accum_pitch_error: {:5.2f}".format(accum_pitch_error))
+            #print("integral: {:5.2f}".format(integral))
             new_speed = 2 * pwm_value    # use returned value to move motor
             print("PWM value: {:5.2f}".format(pwm_value))
-            if new_speed <= -30:
+            if (p > 90 or p < -90): # stop the motors if we're far from vertical and there's no chance of success
+                stop(A2, A1)
+                stop(B1, B2)
+            if new_speed <= -10:
                 forward(motor_a, A2, A1, new_speed)
                 forward(motor_b, B1, B2, new_speed)
-            elif new_speed >= 30:
+            elif new_speed >= 10:
                 backward(motor_a, A2, A1, new_speed) 
                 backward(motor_b, B1, B2, new_speed) 
             else:  # stop motors
