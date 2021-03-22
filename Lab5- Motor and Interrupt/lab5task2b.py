@@ -79,7 +79,7 @@ A_speed = 0
 B_speed = 0
 A_count = 0
 B_count = 0
-tic = pyb.millis();
+tic = pyb.millis()
 
 while True:				# loop forever until CTRL-C
 	# detect rising edge on sensor A
