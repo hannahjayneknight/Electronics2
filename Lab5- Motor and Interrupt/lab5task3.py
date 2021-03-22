@@ -106,6 +106,7 @@ import micropython
 micropython.alloc_emergency_exception_buf(100)
 from pyb import ExtInt
 
+# two interrupts - one for motor A and one for motor B
 motorA_int = ExtInt ('Y4', ExtInt.IRQ_RISING, Pin.PULL_NONE,isr_motorA)
 motorB_int = ExtInt ('Y5', ExtInt.IRQ_RISING, Pin.PULL_NONE,isr_motorB)
 
