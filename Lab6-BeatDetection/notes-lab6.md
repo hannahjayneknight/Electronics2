@@ -68,3 +68,7 @@ Other things to note:
 - PyBench only seems to detect clear, distinct beats that have a second between them. When beats are played too quickly, it does not pick them all up.
 
 ## Improving the beat_detect_0.py file
+
+Suggestions for how this file can be improved:
+- Apply a moving average filter before calculating energy to remove noise.
+- Make the code specific to the song you want to detect beats for. Check the song's energy spectrum and find the ratio c = instantenous energy/(sum_energy/50) for the beat you are detecting.
