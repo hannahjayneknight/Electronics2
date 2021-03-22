@@ -73,7 +73,7 @@ speed = 0
 A_state = 0
 A_speed = 0
 A_count = 0
-tic = pyb.millis();
+tic = pyb.millis()
 
 while True:				# loop forever until CTRL-C
 	pyb.delay(1)

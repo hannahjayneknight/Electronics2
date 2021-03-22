@@ -1,7 +1,7 @@
 import time
 import micropython      # Needed for interrupt
 import pyb
-from pyb import Pin, Timer, ADC
+from pyb import Pin, Timer, ADC, ExtInt
 from mpu6050 import MPU6050
 from oled_938 import OLED_938  # Use OLED display driver
 # OLED screen setup
@@ -25,10 +25,9 @@ while trigger(): pass       # wait for release
 print('Button pressed - tuning the PID control.')
 
 ##
-# Code to create peripheral objects and interrupts
+# Code to create peripheral objects
 ##
-# Start interrupt
-micropython.alloc_emergency_exception_buf(100)
+
 # IMU device
 imu = MPU6050(1, False)
 pot = ADC(Pin('X11'))           # 5k ohm potentiometer to ADC input on pin X11
@@ -43,6 +42,12 @@ PWMB = Pin('X2')                # Control speed of motor B
 tim = Timer(2, freq=1000)
 motor_a = tim.channel(1, Timer.PWM, pin=PWMA)
 motor_b = tim.channel(2, Timer.PWM, pin=PWMB)
+
+##
+# Code to create peripheral objects
+##
+
+micropython.alloc_emergency_exception_buf(100) # DO WE NEED INTERRUPTS??
 
 ##
 # Code for pitch calculation and PID control
@@ -133,10 +138,10 @@ try:
             if (p > 90 or p < -90): # stop the motors if we're far from vertical and there's no chance of success
                 stop(A2, A1)
                 stop(B1, B2)
-            if new_speed <= -10:
+            if new_speed >= -5:
                 forward(motor_a, A2, A1, new_speed)
                 forward(motor_b, B1, B2, new_speed)
-            elif new_speed >= 10:
+            elif new_speed <= 5:
                 backward(motor_a, A2, A1, new_speed) 
                 backward(motor_b, B1, B2, new_speed) 
             else:  # stop motors
