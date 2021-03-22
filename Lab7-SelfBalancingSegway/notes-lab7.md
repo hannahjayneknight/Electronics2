@@ -77,6 +77,9 @@ Video of challenge 2:
 
 **What:** Make a PID controller to self-balance the segway. The control angle is the measured pitch angle and the aim is to maintain it at 0 degrees.
 
-1. Tried writing my own PID controller in _challenge5-attempt1.py_. The K_p, K_d and K_i values were manually fine-tuned following the method setout in lectures, however, this was unsuccessful as the robot never found an oscillation point.
+1. Tried writing my own PID controller in _challenge5-attempt1.py_. The K_p, K_d and K_i values were manually fine-tuned following the method setout in lectures, however, this was unsuccessful as the robot never found an oscillation point. <br />
+
+How I should debug:
+- Try to output graphs to see what the P, I and D terms are each doing throughout.
 
 2. A PID controller class was found online: https://github.com/ivmech/ivPID. 
