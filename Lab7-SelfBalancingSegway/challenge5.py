@@ -84,3 +84,15 @@ setpoint_list = []
 """
 Program loop
 """
+
+try:
+    tic1 = pyb.micros()
+    while True:
+        dt_val = pyb.micros() - tic1
+        if dt_val > 5000:
+            p, p_dot = read_imu(dt_val, alpha_val)
+            tic1 += dt_val
+
+finally:
+    stop(A2, A1)
+    stop(B1, B2)
