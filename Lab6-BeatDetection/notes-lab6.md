@@ -72,3 +72,4 @@ Other things to note:
 Suggestions for how this file can be improved:
 - Apply a moving average filter before calculating energy to remove noise.
 - Make the code specific to the song you want to detect beats for. Check the song's frequency spectrum and find the frequency of the beats you are detecting as it varies with the instrument.
+- Apply a low pass filter before calculating energy to remove noise (as suggested by a classmate).
