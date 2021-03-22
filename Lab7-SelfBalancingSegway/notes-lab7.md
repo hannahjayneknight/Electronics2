@@ -30,9 +30,7 @@ def pitch_estimate ( pitch, dt, alpha ):
     return ( pitch, pitch_dot )
 ```
 
-**From Peter:** dt is delta time, the
-time since the last reading in the program loop. You find dt with tic and pyb.millis(). Don’t forget to adjust
-dt to seconds in your equation.
+**From Peter:** dt is delta time, the time since the last reading in the program loop. You find dt with tic and pyb.millis(). Don’t forget to adjust dt to seconds in your equation.
 
 ## Tip 8 - reading from text files in python
 
@@ -72,4 +70,10 @@ It was decided to omit the roll angle since this does not seem to be measuring a
 
 4. The _main.py_ file was edited so that _challenge2.py_ automatically runs when the dip switches are in the 010 (2) position (2).
 
-## CHALLENGE 3
+## CHALLENGE 5
+
+**What:** Make a PID controller to self-balance the segway. The control angle is the measured pitch angle and the aim is to maintain it at 0 degrees.
+
+1. Tried writing my own PID controller in _challenge5-attempt1.py_. The K_p, K_d and K_i values were manually fine-tuned following the method setout in lectures, however, this was unsuccessful as the robot never found an oscillation point. 
+
+2. A PID controller class was found online: https://github.com/ivmech/ivPID. 
