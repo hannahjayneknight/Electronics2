@@ -76,4 +76,7 @@ It was decided to omit the roll angle since this does not seem to be measuring a
 
 1. Tried writing my own PID controller in _challenge5-attempt1.py_. The K_p, K_d and K_i values were manually fine-tuned following the method setout in lectures, however, this was unsuccessful as the robot never found an oscillation point. 
 
+Video of challenge 2:
+![Video]() <br />
+
 2. A PID controller class was found online: https://github.com/ivmech/ivPID. 
