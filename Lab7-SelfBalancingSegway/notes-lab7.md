@@ -70,13 +70,13 @@ It was decided to omit the roll angle since this does not seem to be measuring a
 
 4. The _main.py_ file was edited so that _challenge2.py_ automatically runs when the dip switches are in the 010 (2) position (2).
 
+Video of challenge 2:
+![Video](https://github.com/hannahjayneknight/Electronics2/blob/main/Lab7-SelfBalancingSegway/challenge2.mp4) <br />
+
 ## CHALLENGE 5
 
 **What:** Make a PID controller to self-balance the segway. The control angle is the measured pitch angle and the aim is to maintain it at 0 degrees.
 
-1. Tried writing my own PID controller in _challenge5-attempt1.py_. The K_p, K_d and K_i values were manually fine-tuned following the method setout in lectures, however, this was unsuccessful as the robot never found an oscillation point. 
-
-Video of challenge 2:
-![Video]() <br />
+1. Tried writing my own PID controller in _challenge5-attempt1.py_. The K_p, K_d and K_i values were manually fine-tuned following the method setout in lectures, however, this was unsuccessful as the robot never found an oscillation point.
 
 2. A PID controller class was found online: https://github.com/ivmech/ivPID. 
