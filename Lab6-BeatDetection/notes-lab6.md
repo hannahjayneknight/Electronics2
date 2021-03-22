@@ -71,4 +71,4 @@ Other things to note:
 
 Suggestions for how this file can be improved:
 - Apply a moving average filter before calculating energy to remove noise.
-- Make the code specific to the song you want to detect beats for. Check the song's energy spectrum and find the ratio c = instantenous energy/(sum_energy/50) for the beat you are detecting.
+- Make the code specific to the song you want to detect beats for. Check the song's frequency spectrum and find the frequency of the beats you are detecting as it varies with the instrument.

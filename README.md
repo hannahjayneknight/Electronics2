@@ -114,4 +114,4 @@ Link to notes: <br />
 **What:** A choice of challenges were set for the final assessment, with varying difficulty. I decided to start with a simpler challenge since time was limited, and then make it more complex if I had the time. Some tips were provided, too, and these were worked through to help with the challenge.
 
 1. Using the IMU to control the speed and direction of the motors.
-2. Adding PID control to ensure both motors are always running at the same speed.
+2. Using PID control to try to make the segway self-balancing.
